@@ -52,8 +52,29 @@ A escolha de cada um dos gráficos se deu por leitura de artigos digitais
 
 ---
 
-## ANÁLISE DOS GRÁFICOS
-Esta é a seção central do observatório. O dashboard está segmentado em 3 grandes blocos funcionais, totalizando **14 gráficos** planejados para responder a diferentes níveis de perguntas de negócio da PROADMI.
+## ANÁLISE DOS GRÁFICOS E KPIS
+
+Esta é a seção central do observatório. Além da apresentação básica de *KPIs* (*Key Performance Indicators*), o dashboard está segmentado em 3 grandes blocos funcionais, totalizando **14 gráficos** planejados para responder a diferentes níveis de perguntas de negócio da PROADMI.
+
+#### 💡 Indicadores-Chave de Desempenho (KPIs)
+Logo no topo da interface, antes dos gráficos detalhados, o dashboard exibe 6 painéis de métricas dinâmicas.
+
+* **Total de Contratos:** quantidade absoluta de contratos dentro do escopo selecionado.
+* **Valor Total Contratado:** soma do impacto financeiro global (R$) de todos os contratos vigentes ou filtrados.
+* **Valor Executado dos Contratos:** montante financeiro que já foi efetivamente liquidado/pago.
+* **Ano com mais Contratos:** identifica o ano calendário que concentra o maior volume de registros.
+* **Maior Contratada:** a empresa ou fornecedor que detém o maior número de vínculos contratuais.
+* **Unidade Destaque:** o setor ou campus da universidade (unidade beneficiada) com a maior demanda contratual registrada.
+
+<div align="center">
+  
+| ![Painel de KPIs do Dashboard](./assets/kpis_dashboard.png) |
+|:--:|
+| *Visão geral dos indicadores-chave* |
+
+</div>
+
+---
 
 #### 📈 Bloco 1: ADMINISTRATIVO
 Focado na análise detalhada da quantidade, categorização, vigência e base legal dos contratos.
