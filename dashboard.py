@@ -247,7 +247,7 @@ if fl is not None:
     else:
         df = pd.read_excel(fl)
 else:
-    df = pd.read_csv("FatosContratosV2.csv")
+    df = pd.read_csv("PGC_PROADMI.csv")
 
 # ==============================================================================
 # 5. PROCESSAMENTO DE DADOS
@@ -391,12 +391,20 @@ k4, k5, k6 = st.columns(3)
 with k1:
     st.markdown(f"""
     <div class="kpi-card">
+        <div class="kpi-title"><span class="tooltip" title="Quantidade total de contratos após aplicação dos filtros">📄 Total de Contratos</span></div>
+        <div class="kpi-value">{n_contratos}</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+with k2:
+    st.markdown(f"""
+    <div class="kpi-card">
         <div class="kpi-title"><span class="tooltip" title="Soma do valor total contratado após aplicação dos filtros">💰 Valor Total Contratado</span></div>
         <div class="kpi-value">R$ {valor_total:,.2f}</div>
     </div>
     """, unsafe_allow_html=True)
 
-with k2:
+with k3:
     st.markdown(f"""
     <div class="kpi-card">
         <div class="kpi-title"><span class="tooltip" title="Valor já executado ou liquidado dos contratos filtrados">📊 Valor Executado dos Contratos</span></div>
@@ -404,19 +412,11 @@ with k2:
     </div>
     """, unsafe_allow_html=True)
 
-with k3:
-    st.markdown(f"""
-    <div class="kpi-card">
-        <div class="kpi-title"><span class="tooltip" title="Quantidade total de contratos após aplicação dos filtros">📄 Total de Contratos</span></div>
-        <div class="kpi-value">{n_contratos}</div>
-    </div>
-    """, unsafe_allow_html=True)
-
 with k4:
     st.markdown(f"""
     <div class="kpi-card">
-        <div class="kpi-title"><span class="tooltip" title="Unidade que possui o maior número de contratos">🏛️ Unidade Destaque</span></div>
-        <div class="kpi-value">{top_unidade_nome}</div>
+        <div class="kpi-title"><span class="tooltip" title="Ano com maior quantidade de contratos">📅 Ano com mais Contratos</span></div>
+        <div class="kpi-value">{ano_lider_nome}</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -431,8 +431,8 @@ with k5:
 with k6:
     st.markdown(f"""
     <div class="kpi-card">
-        <div class="kpi-title"><span class="tooltip" title="Ano com maior quantidade de contratos">📅 Ano com mais Contratos</span></div>
-        <div class="kpi-value">{ano_lider_nome}</div>
+        <div class="kpi-title"><span class="tooltip" title="Unidade que possui o maior número de contratos">🏛️ Unidade Destaque</span></div>
+        <div class="kpi-value">{top_unidade_nome}</div>
     </div>
     """, unsafe_allow_html=True)
 
