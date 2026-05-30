@@ -1,59 +1,427 @@
-# dashboard-streamlit-upe
+###### PT
 
-## 1. Instalação do Streamlit
+# Observatório de Dados da Pró-Reitoria de Administração e Finanças da Universidade de Pernambuco (UPE)
 
-Primeiro, se preferir, usa uma máquina virtual pra instalar o streamlit pq ele dá problema com algumas versões do Python, mas não é necessário.
+JOHNNY CLEITON - Residente (Ciência de Dados e Analytics)  
+JOSS TIMOTEO - Residente (Ciência de Dados e Analytics)   
+RAPHAEL FEITOSA -Servidor (UPE / PROADMI) 
 
-Stremlit é uma biblioteca Python, então pode instalar normalmente usando o pip no terminal do Win.
+Este projeto é resultado do Trabalho de Conclusão de Curso desenvolvido no contexto da **Residência em Ciência de Dados e Analytics** da Universidade de Pernambuco (UPE). A iniciativa surgiu por meio da colaboração entre residentes da área de tecnologia e servidores da instituição, com o objetivo de cocriar um observatório digital fundamentado em dados disponibilizados pelos setores da universidade. Neste trabalho, o foco está na Pró-Reitoria de Administração e Finanças (PROADMI), setor responsável pela gestão e acompanhamento da movimentação contratual dos diversos campi da UPE.
+
+
+---
+
+## MOTIVAÇÃO
+Centralizar o acompanhamento dos contratos da UPE por meio de um dashboard interativo.
+
+💡 *Caso queira executar a aplicação diretamente em sua máquina, pule para a seção de [Como Executar o Projeto](#-como-executar-o-projeto).*
+
+---
+
+## BACKGROUND
+
+#### O Setor e o Problema
+A Pró-Reitoria de Administração e Finanças (PROADMI) desempenha um papel crucial na governança orçamentária e operacional da UPE. Dentro de seu escopo, o setor de Contratos gerencia um volume expressivo de acordos, termos aditivos e prazos de vigência. O grande desafio residia na sintetização dessas informações, o que dificultava análises preditivas de despesas, o controle visual de vencimentos iminentes e a distribuição equilibrada da carga administrativa.
+
+#### Base de Dados
+A aplicação é alimentada pela **PGC (Planilha de Gerenciamento de Contratos)**, uma base de dados idealizada, estruturada e mantida por [Raphael Feitosa](https://www.linkedin.com/in/raphael-feitosa-49840a258/) junto à gerência do setor.
+* **Propósito:** registrar, fiscalizar e atualizar o ciclo de vida (etapas, valores e vigências) de todos os contratos ativos e inativos da UPE.
+* **Visão Geral:** a planilha conta atualmente com cerca de 70 colunas e engloba variáveis críticas como: número do processo licitatório, objeto contratado, valores globais/mensais, vigência cronológica, dados dos fornecedores e fiscais responsáveis.
+
+---
+
+## PROCESSO DE CONSTRUÇÃO E TECNOLOGIAS
+
+#### Tratamento de Dados (ETL) 
+
+Todo o processo de Extração, Transformação e Carga (ETL) foi desenvolvido utilizando o [**Apache Hop**](https://hop.apache.org/), garantindo a padronização, limpeza e integridade dos dados extraídos da planilha PGC antes de sua renderização.
+  
+<div align="center">
+  
+| ![Fluxo de ETL no Apache Hop](./assets/apache_hop_pipeline.png) |
+|:--:|
+| *Pipeline de ETL construído no Apache Hop* |
+
+</div>
+
+#### Implementação e Interface
+
+O dashboard foi codificado inteiramente em **Python** com apoio de **CSS** na estilização. O framework utilizado para a arquitetura web da aplicação foi o [**Streamlit**](https://streamlit.io/), e as bibliotecas **Pandas** e **Plotly Express** complementaram para a manipulação analítica e geração de gráficos interativos.
+
+A escolha de cada um dos gráficos se deu por leitura de artigos digitais 
+
+---
+
+## ANÁLISE DOS GRÁFICOS E KPIS
+
+Esta é a seção central do observatório. Além da apresentação básica de *KPIs* (*Key Performance Indicators*), o dashboard está segmentado em 3 grandes blocos funcionais, totalizando **14 gráficos** planejados para responder a diferentes níveis de perguntas de negócio da PROADMI.
+
+#### 💡 Indicadores-Chave de Desempenho (KPIs)
+Logo no topo da interface, antes dos gráficos detalhados, o dashboard exibe 6 painéis de métricas dinâmicas.
+
+* **Total de Contratos:** quantidade absoluta de contratos dentro do escopo selecionado.
+* **Valor Total Contratado:** soma do impacto financeiro global (R$) de todos os contratos vigentes ou filtrados.
+* **Valor Executado dos Contratos:** montante financeiro que já foi efetivamente liquidado/pago.
+* **Ano com mais Contratos:** identifica o ano calendário que concentra o maior volume de registros.
+* **Maior Contratada:** a empresa ou fornecedor que detém o maior número de vínculos contratuais.
+* **Unidade Destaque:** o setor ou campus da universidade (unidade beneficiada) com a maior demanda contratual registrada.
+
+<div align="center">
+  
+| ![Painel de KPIs do Dashboard](./assets/kpis_dashboard.png) |
+|:--:|
+| *Visão geral dos indicadores-chave* |
+
+</div>
+
+---
+
+#### 📈 Bloco 1: ADMINISTRATIVO
+Focado na análise detalhada da quantidade, categorização, vigência e base legal dos contratos.
+
+1. **📅 Quantidade de Contratos por Ano - Evolução Histórica Total**
+   * *Descrição:* mostra o crescimento ou redução na quantidade total de contratos firmados ao longo dos anos.
+   * *Tipo de Gráfico:* Gráfico de Área.
+     
+<div align="center">
+  
+| ![Gráfico Administrativo 1](./assets/grafico_adm_1.png) |
+|:--:|
+| ***Evolução Histórica Total:** responde como o volume de novos contratos da instituição está evoluindo a longo prazo e se há alguma tendência histórica de alta ou queda.* |
+
+</div>
+ 
+
+
+2. **📅 Quantidade de Contratos por Ano - Comparativo 2025 x 2026**
+   * *Descrição:* Compara lado a lado a quantidade de contratos de dois anos específicos selecionados pelo usuário.
+   * *Tipo de Gráfico:* Gráfico de Barras Verticais.
+     
+<div align="center">
+  
+| ![Gráfico Administrativo 2](./assets/grafico_adm_2.png) |
+|:--:|
+| ***Comparativo 2025 x 2026:** responde qual dos dois períodos comparados foi mais produtivo em termos de novas contratações e qual a diferença exata entre eles.* |
+
+</div>
+
+
+
+3. **🏷️ Contratos por Categoria do Objeto - Distribuição Hierárquica de Categorias**
+   * *Descrição:* representa visualmente o peso de cada categoria de contrato no total acumulado através de blocos proporcionais.
+   * *Tipo de Gráfico:* Treemap (Mapa de Árvore).
+     
+<div align="center">
+  
+| ![Gráfico Administrativo 3](./assets/grafico_adm_3.png) |
+|:--:|
+| ***Distribuição Hierárquica de Categorias:** responde instantaneamente quais categorias de objetos (ex: serviços, compras) são mais frequentes e dominam o ecossistema de contratos.*  |
+
+</div>
+
+
+
+4. **⚖️ Contratos Vigentes por Classificação da Lei - Proporção de Contratos Ativos**
+   * *Descrição:* exibe a divisão percentual dos contratos vigentes entre a Lei antiga (8666/93) e a nova Lei de Licitações (14133/21).
+   * *Tipo de Gráfico:* Gráfico de Rosca (ou Pizza com furo central).
+     
+<div align="center">
+  
+| ![Gráfico Administrativo 4](./assets/grafico_adm_4.png) |
+|:--:|
+| ***Proporção de Contratos Ativos:** responde qual é o percentual de adesão e o andamento da transição jurídica para o novo marco regulatório nos contratos ativos.* |
+
+</div>
+
+
+
+5. **⚖️ Contratos Vigentes por Classificação da Lei - Volume de Contratos Ativos**
+   * *Descrição:* apresenta a quantidade absoluta exata de contratos que estão em execução sob o regime de cada lei.
+   * *Tipo de Gráfico:* Gráfico de Barras Horizontais.
+     
+<div align="center">
+  
+| ![Gráfico Administrativo 5](./assets/grafico_adm_5.png) |
+|:--:|
+| ***Volume de Contratos Ativos:** responde numericamente quantos contratos vigentes ainda estão vinculados à legislação antiga versus a quantidade já licitada pela nova.* |
+
+</div>
+
+
+
+6. **⏳ Quantidade de Contratos por Vigência - Contratos por Tipo de Vigência**
+   * *Descrição:* mostra a quantidade de contratos vigentes divididos por modalidades de prazo (anos, meses ou dias).
+   * *Tipo de Gráfico:* Gráfico de Barras Verticais.
+     
+<div align="center">
+  
+| ![Gráfico Administrativo 6](./assets/grafico_adm_6.png) |
+|:--:|
+| ***Contratos por Tipo de Vigência:** responde qual o perfil de duração mais comum adotado pela administração nas suas contratações padrão.* |
+
+</div>
+
+
+
+7. **⏳ Quantidade de Contratos por Vigência - Ranking de Tempos Contratuais (Top 10)**
+   * *Descrição:* lista de forma ordenada os 10 prazos de validade (em meses/dias) que mais se repetem nos contratos.
+   * *Tipo de Gráfico:* Gráfico de Barras Horizontais.
+   
+<div align="center">
+  
+| ![Gráfico Administrativo 7](./assets/grafico_adm_7.png) |
+|:--:|
+| ***Ranking de Tempos Contratuais (Top 10):** responde quais são as durações contratuais mais padronizadas e utilizadas de maneira recorrente pelo setor de compras.* |
+
+</div>
+
+
+
+8. **⏳ Quantidade de Contratos por Vigência - Tipo de Vigência x Categoria do Objeto**
+   * *Descrição:* lista de forma ordenada os 10 prazos de validade (em meses/dias) que mais se repetem nos contratos.
+   * *Tipo de Gráfico:* Gráfico de Barras Empilhadas.
+     
+<div align="center">
+  
+| ![Gráfico Administrativo 8](./assets/grafico_adm_8.png) |
+|:--:|
+| ***Tipo de Vigência x Categoria do Objeto:** responde como os prazos se comportam dentro de cada categoria (ex: se "Serviços de Engenharia" são majoritariamente contínuos ou determinados).*  |
+
+</div>
+
+
+
+#### 💰 Bloco 2: FINANCEIRO
+Destinado ao companhamento do volume de recursos empenhados, liquidações e distribuição por categoria.
+
+9. **🗂️ Comportamento dos Valores Contratados - Soma dos Valores Totais por Ano (Tamanho indica Volume)**
+   * *Descrição:* traça a evolução financeira total contratada por ano, usando o tamanho dos pontos para destacar os picos de valores.
+   * *Tipo de Gráfico:* Gráfico de Linha combinado com Dispersão (Gráfico de Bolhas).
+     
+<div align="center">
+  
+| ![Gráfico Financeiro 1](./assets/grafico_fin_1.png) |
+|:--:|
+| ***Soma dos Valores Totais por Ano (Tamanho indica Volume):** responde em quais anos a instituição assumiu os maiores compromissos financeiros e qual a tendência do orçamento contratado no tempo.* |
+
+</div>
+
+
+
+10. **📈 Evolução da Execução Financeira - Histórico de Valores Liquidados/Executados por Ano**
+    * *Descrição:* apresenta a curva histórica dos valores financeiros que já foram efetivamente liquidados e pagos ano a ano.
+    * *Tipo de Gráfico:* Gráfico de Área Suavizada (Spline).
+     
+<div align="center">
+  
+| ![Gráfico Financeiro 2](./assets/grafico_fin_2.png) |
+|:--:|
+| ***Histórico de Valores Liquidados/Executados por Ano:** responde se o dinheiro planejado está sendo realmente gasto no ritmo esperado e como anda a eficiência da execução financeira líquida.* |
+
+</div>
+
+
+
+11. **🏷️ Investimento por Categoria do Objeto - Top 3 Categorias com Maior Concentração de Recursos Financeiros**
+    * *Descrição:* destaca os valores em Reais (R$) consumidos pelas três categorias mais caras da instituição.
+    * *Tipo de Gráfico:* Gráfico de Barras Verticais.
+      
+<div align="center">
+  
+| ![Gráfico Financeiro 3](./assets/grafico_fin_3.png) |
+|:--:|
+| ***Top 3 Categorias com Maior Concentração de Recursos Financeiros:** responde de forma direta quais são os três macro-objetos que mais drenam e concentram o orçamento financeiro total da entidade.* |
+
+</div>
+
+
+
+
+#### 🎯 Bloco 3: ESTRATÉGICO
+Evolução temporal do comportamento dos contratos e direcionamento de fornecedores.
+
+12. **🎯 Visão Estratégica e Sazonalidade - Contratos Mês a Mês (Início de Vigência)**
+    * *Descrição:* distribui a quantidade de assinaturas ou inícios de contratos ao longo dos 12 meses do ano.
+    * *Tipo de Gráfico:* Gráfico de Barras Verticais.
+      
+<div align="center">
+  
+| ![Gráfico Estratégico 1](./assets/grafico_est_1.png) |
+|:--:|
+| ***Contratos Mês a Mês (Início de Vigência):** responde se existe um padrão de sazonalidade na administração (ex: se há um acúmulo de contratos iniciando sempre em dezembro ou janeiro).* |
+
+</div>
+
+
+
+13. **🎯 Visão Estratégica e Sazonalidade - Top 5 Contratadas**
+    * *Descrição:* classifica em um ranking os 5 fornecedores/empresas que possuem o maior número de contratos ativos.
+    * *Tipo de Gráfico:* Gráfico de Barras Horizontais.
+      
+<div align="center">
+  
+| ![Gráfico Estratégico 2](./assets/grafico_est_2.png) |
+|:--:|
+| ***Top 5 Contratadas:** responde quem são os parceiros comerciais mais frequentes e ajuda a identificar possíveis cenários de dependência de poucos fornecedores.* |
+
+</div>
+
+
+
+14. **🎯 Visão Estratégica e Sazonalidade - Comportamento Mensal por Categoria**
+    * *Descrição:* monitora a variação do início de novos contratos mês a mês, separando cada categoria de objeto por uma linha colorida diferente.
+    * *Tipo de Gráfico:* Gráfico de Linhas Múltiplas.
+      
+<div align="center">
+  
+| ![Gráfico Estratégico 3](./assets/grafico_est_3.png) |
+|:--:|
+| ***Comportamento Mensal por Categoria:** responde qual o comportamento de demanda de cada setor ao longo do ano, mostrando se compras de equipamentos aumentam em meses que serviços de engenharia caem, por exemplo.* |
+
+</div>
+
+
+---
+
+## 💻 Como Executar o Projeto
+
+### Pré-requisitos
+
+Antes de executar o dashboard, certifique-se de que os seguintes softwares estão instalados em sua máquina:
+
+* **Python 3.8 ou superior**
+* **Git** (opcional, caso utilize linha de comando)
+* **GitHub Desktop** (opcional, para clonar o repositório sem utilizar comandos)
+* **Visual Studio Code (VS Code)**
+
+### 1. Obtendo o Projeto
+
+#### Opção A – Clonando com Git
+
+Abra o terminal do sistema ou o terminal integrado do VS Code e execute:
+
+```bash
+git clone https://github.com/seu-usuario/nome-do-repositorio.git
+cd nome-do-repositorio
+```
+
+#### Opção B – Clonando com GitHub Desktop
+
+1. Abra o **GitHub Desktop**.
+2. Clique em **File → Clone Repository**.
+3. Selecione o repositório desejado ou informe a URL do projeto.
+4. Escolha a pasta de destino.
+5. Clique em **Clone**.
+6. Após a clonagem, clique em **Open in Visual Studio Code** para abrir o projeto.
+
+---
+
+### 2. Criando o Ambiente de Desenvolvimento (Opcional)
+
+Embora não seja obrigatório, recomenda-se utilizar um ambiente virtual para evitar conflitos entre bibliotecas e versões do Python.
+
+```bash
+python -m venv venv
+```
+
+Ative o ambiente:
+
+**Windows**
+
+```bash
+venv\Scripts\activate
+```
+
+**Linux/MacOS**
+
+```bash
+source venv/bin/activate
+```
+
+---
+
+### 3. Instalando as Dependências
+
+O dashboard foi desenvolvido utilizando principalmente as bibliotecas **Streamlit**, **Pandas** e **Plotly**.
+
+Instale-as com os comandos:
 
 ```bash
 pip install streamlit
+pip install pandas
+pip install plotly
 ```
 
-Pra conferir se deu certo digita:
+---
+
+### 4. Verificando a Instalação do Streamlit
+
+Para confirmar que o Streamlit foi instalado corretamente, execute:
 
 ```bash
 streamlit hello
 ```
 
-Vai abrir uma aba no navegador.
+Uma página de demonstração será aberta automaticamente em seu navegador.
+
+> Observação: em algumas versões do Python podem ocorrer incompatibilidades com o Streamlit. Caso isso aconteça, recomenda-se utilizar um ambiente virtual com uma versão compatível do Python.
 
 ---
 
-## 2. Instalação das bibliotecas necessárias
+### 5. Estrutura Geral do Dashboard
 
-Instala as outras bibliotecas necessárias para fazer os gráficos. Ai vai da preferência/necessidade, até agora só usei plotly e pandas.
+Ao abrir o código `dashboard.py` no VS Code, você visualizará a seguinte estrutura:
+
+1. CONFIGURAÇÕES: Inicialização da página do Streamlit.
+2. ESTILIZAÇÃO: CSS customizado injetado via Markdown para componentes e KPIs.
+3. CABEÇALHO: Elementos visuais de título da aplicação.
+4. CARREGAMENTO DE DADOS: Upload de arquivos e fallback para base local.
+5. PROCESSAMENTO DE DADOS: Tratamento, conversões de tipos e novas colunas.
+6. COMPONENTES SIDEBAR: Filtros laterais e lógicas de índices de datas.
+7. APLICAÇÃO DOS FILTROS: FILTRAGEM dinâmica do DataFrame principal.
+8. CÁLCULO E EXIBIÇÃO DE KPIS: Métricas resumidas apresentadas em cards.
+9. SEÇÃO ADMINISTRATIVA: Visualizações focadas em eficiência operacional.
+10. SEÇÃO FINANCEIRA: Visualizações focadas em gastos e execução financeira.
+11. SEÇÃO ESTRATÉGICA: Gráficos de tendências temporais e distribuições gerais.
+12. APRESENTAÇÃO E DOWNLOAD DA BASE: Visualização bruta e exportação CSV.
+
+---
+
+### 6. Executando o Dashboard
+
+Abra o terminal na pasta onde se encontra o arquivo principal do dashboard e execute:
 
 ```bash
-pip install plotly
-pip install pandas
+streamlit run dashboard.py --server.port 8888
+```
+
+Após a execução, o Streamlit abrirá automaticamente uma nova aba no navegador exibindo o dashboard.
+
+Também é possível acessar manualmente através do endereço:
+
+```text
+http://localhost:8888
 ```
 
 ---
 
-## 3. Estrutura básica do código em Streamlit
+### 7. Encerrando a Aplicação
 
-A estrutura do código em streamlit basicamente vai ser:
-
-1. upload do dataset  
-2. tratamento de dados (caso seu CSV não já tenha passado por um tratamento no Apachehop etc)  
-3. escolha dos filtros (os atributos que ficam no menu lateral)  
-4. os gráficos
-
-## 4. Executando o dashboard
-
-O resto é intuitivo vc olhando o código desse repositório ou outros aleatórios:
-* https://github.com/rvats20/streamlit-Dashboard/blob/main/Dashboard.py
-* https://github.com/ScriptsRemote/Streamlit_dash/blob/main/app.py
-* https://github.com/UFRJ-Analytica/streamlit-tutorial/blob/main/dashboard.py
-
-Quando quiser reproduzir na sua máquina tem que abrir o terminal na pasta em que o código tá e usar o comando:
+Para interromper a execução do dashboard, volte ao terminal e pressione:
 
 ```bash
-streamlit run .\dashboard.py --server.port 8888
+Ctrl + C
 ```
 
-Só precisa ter atenção no nome do arquivo do código, o meu é "dashboard.py".
-Vai abrir uma aba no navegador na porta 8888 mostrando o que vc programou.
+---
+### 📄 Informações Adicionais
 
+* Para uma visão mais aprofundada, acesse o **artigo científico completo** desenvolvido durante a residência. Além de detalhar a metodologia, o referencial teórico e os resultados obtidos com o dashboard, o documento explora etapas avançadas não documentadas neste repositório, como a **aplicação de algoritmos de aprendizado de máquina (Machine Learning)** aos dados. [Clique aqui para ler]([inserir_link_aqui]).
 
+---
+
+## ⚖️ Direitos e Licença
+
+* **Propriedade Institucional:** Todos os direitos deste projeto são reservados à **Universidade de Pernambuco (UPE)**.
+* **Transparência e Domínio Público:** A base de dados utilizada é de caráter e **domínio público**, estando em total conformidade com a Lei de Acesso à Informação (LAI). Os dados brutos originais podem ser consultados oficialmente através do Portal da Transparência da instituição.
+* **Finalidade Deste Repositório:** Este ambiente serve primariamente como portfólio técnico e documentação acadêmica. O código aqui disponibilizado cumpre o papel de registrar o aprendizado prático da equipe e servir como material pedagógico de estudo para futuras soluções de Business Intelligence dentro do ecossistema universitário.
