@@ -1,0 +1,6226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline>
+  <info>
+    <name>contratos</name>
+    <name_sync_with_filename>Y</name_sync_with_filename>
+    <description/>
+    <extended_description/>
+    <pipeline_version/>
+    <pipeline_type>Normal</pipeline_type>
+    <parameters>
+    </parameters>
+    <capture_transform_performance>N</capture_transform_performance>
+    <transform_performance_capturing_delay>1000</transform_performance_capturing_delay>
+    <transform_performance_capturing_size_limit>100</transform_performance_capturing_size_limit>
+    <created_user>-</created_user>
+    <created_date>2026/03/25 12:22:55.008</created_date>
+    <modified_user>-</modified_user>
+    <modified_date>2026/03/25 12:22:55.008</modified_date>
+  </info>
+  <notepads>
+  </notepads>
+  <order>
+    <hop>
+      <from>Car_fatos</from>
+      <to>Tab_fatos</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Ext_vigencia</from>
+      <to>Ini_semestre</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Ini_semestre</from>
+      <to>Fim_semestre</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Rem_texto</from>
+      <to>Rem_ponto</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sel_campos</from>
+      <to>Car_fatos</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Rem_ponto</from>
+      <to>Rem_virgula</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dim_contratada</from>
+      <to>Dim_licitacao</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Rem_virgula</from>
+      <to>Conv_numero</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dim_contrato</from>
+      <to>Dim_contratada</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dim_licitacao</from>
+      <to>Sel_campos</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dim_vigencia</from>
+      <to>Dim_contrato</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sel_Feature25</from>
+      <to>Unificação</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sel_Feature26</from>
+      <to>Unificação</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>ordenamento</from>
+      <to>Sep_numerico</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sep_numerico</from>
+      <to>red_duplicidade</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sep_numerico</from>
+      <to>nao_numerico</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Unificação</from>
+      <to>Null_sei_pag</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Null_sei_pag</from>
+      <to>ordenamento</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Ent_contrato_2026</from>
+      <to>Num_contrato26</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Num_contrato26</from>
+      <to>Sel_Feature26</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Ent_contrato_2025</from>
+      <to>Num_contrato25</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Num_contrato25</from>
+      <to>Sel_Feature25</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Cont_vigencia</from>
+      <to>Ext_vigencia</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>red_duplicidade</from>
+      <to>Conc_Logradouro</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Conc_Logradouro</from>
+      <to>Conc_Contato</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Conc_Contato</from>
+      <to>Pad_cat_obj</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Pad_cat_obj</from>
+      <to>Pad_res_obj</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Pad_res_obj</from>
+      <to>Pad_uni_ben</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Pad_uni_ben</from>
+      <to>Pad_decisao</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Pad_decisao</from>
+      <to>Pad_func_rlc</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Pad_func_rlc</from>
+      <to>Pad_contratada</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Pad_contratada</from>
+      <to>Pad_modalidade</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Pad_val_mensal</from>
+      <to>Pad_situacao</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Pad_situacao</from>
+      <to>Rem_texto</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Pad_modalidade</from>
+      <to>Rem_linha</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Rem_linha</from>
+      <to>Pad_val_mensal</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Fim_semestre</from>
+      <to>Rem_null</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Rem_null</from>
+      <to>Dim_vigencia</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Conv_numero</from>
+      <to>Cont_vigencia</to>
+      <enabled>Y</enabled>
+    </hop>
+  </order>
+  <transform>
+    <name>Car_fatos</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <add_columns>N</add_columns>
+    <always_drop_and_recreate>N</always_drop_and_recreate>
+    <auto_update_table_structure>N</auto_update_table_structure>
+    <change_column_types>N</change_column_types>
+    <commit>1000</commit>
+    <connection>Aula2</connection>
+    <drop_columns>N</drop_columns>
+    <fields>
+</fields>
+    <ignore_errors>N</ignore_errors>
+    <only_when_have_rows>N</only_when_have_rows>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <return_keys>N</return_keys>
+    <specify_fields>N</specify_fields>
+    <table>fato_contratosv2</table>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_in_table>Y</tablename_in_table>
+    <truncate>Y</truncate>
+    <use_batch>Y</use_batch>
+    <attributes/>
+    <GUI>
+      <xloc>1088</xloc>
+      <yloc>480</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Conc_Contato</name>
+    <type>Janino</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>contato_rtc</field_name>
+      <formula_string>"Fone: " + telefone_rtc + ". " + "E-mail: " + email_rtc
+</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field/>
+    </formula>
+    <attributes/>
+    <GUI>
+      <xloc>944</xloc>
+      <yloc>80</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Conc_Logradouro</name>
+    <type>Janino</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>logradouro</field_name>
+      <formula_string>tip_logadouro + " " + logadouro_con + ", " + numero + "- " + complemento + "- " + bairro + ", " + cidade + "- " + uf + ", " + cep
+</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field/>
+    </formula>
+    <attributes/>
+    <GUI>
+      <xloc>800</xloc>
+      <yloc>80</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Cont_vigencia</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <calculation>
+      <calc_type>DATE_DIFF</calc_type>
+      <field_a>fim_vigencia</field_a>
+      <field_b>ini_vigencia</field_b>
+      <field_name>vigencia</field_name>
+      <remove>N</remove>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+    </calculation>
+    <failIfNoFile>Y</failIfNoFile>
+    <attributes/>
+    <GUI>
+      <xloc>1616</xloc>
+      <yloc>368</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Conv_numero</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <meta>
+        <date_format_lenient>N</date_format_lenient>
+        <length>-2</length>
+        <lenient_string_to_number>N</lenient_string_to_number>
+        <name>val_executado</name>
+        <precision>-2</precision>
+        <rename>val_executado</rename>
+        <roundingType>half_even</roundingType>
+        <storage_type/>
+        <type>BigNumber</type>
+      </meta>
+      <meta>
+        <date_format_lenient>N</date_format_lenient>
+        <length>-2</length>
+        <lenient_string_to_number>N</lenient_string_to_number>
+        <name>val_mensal</name>
+        <precision>-2</precision>
+        <rename>val_mensal</rename>
+        <roundingType>half_even</roundingType>
+        <storage_type/>
+        <type>BigNumber</type>
+      </meta>
+      <meta>
+        <date_format_lenient>N</date_format_lenient>
+        <length>-2</length>
+        <lenient_string_to_number>N</lenient_string_to_number>
+        <name>val_total</name>
+        <precision>-2</precision>
+        <rename>val_total</rename>
+        <roundingType>half_even</roundingType>
+        <storage_type/>
+        <type>BigNumber</type>
+      </meta>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <GUI>
+      <xloc>1616</xloc>
+      <yloc>256</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Dim_contratada</name>
+    <type>CombinationLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <cache_size>9999</cache_size>
+    <commit>100</commit>
+    <connection>Aula2</connection>
+    <crc>N</crc>
+    <crcfield>hashcode</crcfield>
+    <fields>
+      <key>
+        <lookup>contratada</lookup>
+        <name>contratada</name>
+      </key>
+      <key>
+        <lookup>cnpj</lookup>
+        <name>cnpj</name>
+      </key>
+      <key>
+        <lookup>rlc</lookup>
+        <name>rlc</name>
+      </key>
+      <key>
+        <lookup>classificacao_rlc</lookup>
+        <name>classificacao_rlc</name>
+      </key>
+      <key>
+        <lookup>rtc</lookup>
+        <name>rtc</name>
+      </key>
+      <key>
+        <lookup>logradouro</lookup>
+        <name>logradouro</name>
+      </key>
+      <key>
+        <lookup>contato_rtc</lookup>
+        <name>contato_rtc</name>
+      </key>
+      <return>
+        <creation_method>tablemax</creation_method>
+        <name>id_dim_contratada</name>
+        <use_autoinc>N</use_autoinc>
+      </return>
+    </fields>
+    <preloadCache>N</preloadCache>
+    <replace>N</replace>
+    <table>dim_contratada</table>
+    <attributes/>
+    <GUI>
+      <xloc>624</xloc>
+      <yloc>368</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Dim_contrato</name>
+    <type>CombinationLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <cache_size>9999</cache_size>
+    <commit>100</commit>
+    <connection>Aula2</connection>
+    <crc>N</crc>
+    <crcfield>hashcode</crcfield>
+    <fields>
+      <key>
+        <lookup>num_contrato</lookup>
+        <name>num_contrato</name>
+      </key>
+      <key>
+        <lookup>ano_contrato</lookup>
+        <name>ano_contrato</name>
+      </key>
+      <key>
+        <lookup>objeto</lookup>
+        <name>objeto</name>
+      </key>
+      <key>
+        <lookup>cat_objeto</lookup>
+        <name>cat_objeto</name>
+      </key>
+      <key>
+        <lookup>res_objeto</lookup>
+        <name>res_objeto</name>
+      </key>
+      <key>
+        <lookup>uni_beneficiada</lookup>
+        <name>uni_beneficiada</name>
+      </key>
+      <key>
+        <lookup>sei_originario</lookup>
+        <name>sei_originario</name>
+      </key>
+      <key>
+        <lookup>sei_pagamento</lookup>
+        <name>sei_pagamento</name>
+      </key>
+      <key>
+        <lookup>num_apostilamento</lookup>
+        <name>num_apostilamento</name>
+      </key>
+      <key>
+        <lookup>num_peintegrado</lookup>
+        <name>num_peintegrado</name>
+      </key>
+      <key>
+        <lookup>sta_peintegrado</lookup>
+        <name>sta_peintegrado</name>
+      </key>
+      <key>
+        <lookup>num_efisco</lookup>
+        <name>num_efisco</name>
+      </key>
+      <key>
+        <lookup>sta_efisco</lookup>
+        <name>sta_efisco</name>
+      </key>
+      <key>
+        <lookup>sta_remessatce</lookup>
+        <name>sta_remessatce</name>
+      </key>
+      <key>
+        <lookup>sta_transferegov</lookup>
+        <name>sta_transferegov</name>
+      </key>
+      <key>
+        <lookup>sta_doe</lookup>
+        <name>sta_doe</name>
+      </key>
+      <return>
+        <creation_method>tablemax</creation_method>
+        <name>id_dim_contrato</name>
+        <use_autoinc>N</use_autoinc>
+      </return>
+    </fields>
+    <preloadCache>N</preloadCache>
+    <replace>N</replace>
+    <table>dim_contrato</table>
+    <attributes/>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>368</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Dim_licitacao</name>
+    <type>CombinationLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <cache_size>9999</cache_size>
+    <commit>100</commit>
+    <connection>Aula2</connection>
+    <crc>N</crc>
+    <crcfield>hashcode</crcfield>
+    <fields>
+      <key>
+        <lookup>npl</lookup>
+        <name>npl</name>
+      </key>
+      <key>
+        <lookup>modalidade</lookup>
+        <name>modalidade</name>
+      </key>
+      <key>
+        <lookup>num_empenho</lookup>
+        <name>num_empenho</name>
+      </key>
+      <return>
+        <creation_method>tablemax</creation_method>
+        <name>id_dim_licitacao</name>
+        <use_autoinc>N</use_autoinc>
+      </return>
+    </fields>
+    <preloadCache>N</preloadCache>
+    <replace>N</replace>
+    <table>dim_licitacao</table>
+    <attributes/>
+    <GUI>
+      <xloc>480</xloc>
+      <yloc>368</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Dim_vigencia</name>
+    <type>CombinationLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <cache_size>9999</cache_size>
+    <commit>100</commit>
+    <connection>Aula2</connection>
+    <crc>N</crc>
+    <crcfield>hashcode</crcfield>
+    <fields>
+      <key>
+        <lookup>dia_inicio</lookup>
+        <name>dia_inicio</name>
+      </key>
+      <key>
+        <lookup>mes_inicio</lookup>
+        <name>mes_inicio</name>
+      </key>
+      <key>
+        <lookup>ano_inicio</lookup>
+        <name>ano_inicio</name>
+      </key>
+      <key>
+        <lookup>dia_fim</lookup>
+        <name>dia_fim</name>
+      </key>
+      <key>
+        <lookup>mes_fim</lookup>
+        <name>mes_fim</name>
+      </key>
+      <key>
+        <lookup>ano_fim</lookup>
+        <name>ano_fim</name>
+      </key>
+      <key>
+        <lookup>semestre_inicio</lookup>
+        <name>semestre_inicio</name>
+      </key>
+      <key>
+        <lookup>semestre_fim</lookup>
+        <name>semestre_fim</name>
+      </key>
+      <key>
+        <lookup>vigencia</lookup>
+        <name>vigencia</name>
+      </key>
+      <key>
+        <lookup>ini_vigencia</lookup>
+        <name>ini_vigencia</name>
+      </key>
+      <key>
+        <lookup>fim_vigencia</lookup>
+        <name>fim_vigencia</name>
+      </key>
+      <key>
+        <lookup>decisao</lookup>
+        <name>decisao</name>
+      </key>
+      <key>
+        <lookup>adi_prazo</lookup>
+        <name>adi_prazo</name>
+      </key>
+      <key>
+        <lookup>adi_valor</lookup>
+        <name>adi_valor</name>
+      </key>
+      <key>
+        <lookup>lei</lookup>
+        <name>lei</name>
+      </key>
+      <key>
+        <lookup>situacao</lookup>
+        <name>situacao</name>
+      </key>
+      <return>
+        <creation_method>tablemax</creation_method>
+        <name>id_dim_vigencia</name>
+        <use_autoinc>N</use_autoinc>
+      </return>
+    </fields>
+    <preloadCache>N</preloadCache>
+    <replace>N</replace>
+    <table>dim_vigencia</table>
+    <attributes/>
+    <GUI>
+      <xloc>928</xloc>
+      <yloc>368</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Ent_contrato_2025</name>
+    <type>ExcelInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <accept_filenames>N</accept_filenames>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <encoding>UTF-8</encoding>
+    <error_ignored>N</error_ignored>
+    <error_line_files_extension>error</error_line_files_extension>
+    <error_line_skipped>N</error_line_skipped>
+    <fields>
+      <field>
+        <length>-1</length>
+        <name>CONTRATADA</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>CNPJ DA
+ CONTRATADA</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>OBJETO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>CATEGORIA DO
+OBJETO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>RESUMO DO OBJETO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>UNIDADE BENEFICIADA</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DESTAQUE</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>SEI
+ORIGINÁRIO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>SEI 2025
+(PAGAMENTO)</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>NÚMERO DO CONTRATO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>ANO DO CONTRATO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>VIGÊNCIA</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>UNIDADE DE MEDIDA DA VIGÊNCIA</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>INÍCIO DA VIGÊNCIA</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>FIM DA VIGÊNCIA</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>PRAZO DE
+REMANESCENTE</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>NOTIFICAÇÃO DE
+TEMPESTIVIDADE</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DECISÃO DO GESTOR E/OU DO FISCAL</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>GESTOR DO CONTRATO
+(NOME)</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>SETOR/UNIDADE
+DO GESTOR</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>EMAIL
+GESTOR DO CONTRATO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>FISCAL DO CONTRATO
+(NOME)</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>SETOR/UNIDADE
+DO FISCAL</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>EMAIL
+FISCAL DO CONTRATO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>SERVIDOR RESPONSÁVEL PELO ACOMPANHAMENTO DA GESTÃO CONTRATUAL</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>REPRESENTANTE LEGAL DA CONTRATADA - RLC
+(NOME)</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>FUNÇÃO DO RLC</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>RESPONSÁVEL TÉCNICO DA CONTRATADA - RTC
+(NOME)</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>TELEFONE DE CONTATO DO RTC</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>E-MAIL DO RTC</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>TIPO DE LOGRADOURO DA CONTRATADA</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>LOGRADOURO DA CONTRATADA</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>NÚMERO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>COMPLEMENTO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>BAIRRO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>CIDADE</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>UNIDADE FEDERATIVA (UF)</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>CEP</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>PROCESSO LICITATÓRIO </name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>MODALIDADE</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>EMPENHO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>VALOR TOTAL DO CONTRATO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>VALOR MENSAL DO CONTRATO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>VALOR EXECUTADO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>ADITIVO DE PRAZO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>ADITIVO DE VALOR</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>Nº DO APOSTILAMENTO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>CONTRATO REGIDO PELA
+LEI</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>CONTRATO
+PE INTEGRADO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>STATUS
+DO CADASTRO NO
+PE INTEGRADO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+STATUS</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>COMENTAR
+SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+COMENTÁRIO DA
+SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>CONTRATO EFISCO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>STATUS
+DO CADASTRO NO
+EFISCO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+STATUS</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>COMENTAR
+SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+COMENTÁRIO DA
+SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>STATUS
+DO CADASTRO NO
+REMESSATCE/PE</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+STATUS</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>COMENTAR
+SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+COMENTÁRIO DA
+SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>STATUS
+DO CADASTRO
+TRANSFEREGOV
+RECURSO DE CONVÊNIO FEDERAL</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+STATUS</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>COMENTAR
+SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+COMENTÁRIO DA
+SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>STATUS
+DA PUBLICAÇÃO NO
+DOE</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+STATUS</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>STATUS
+DO REGISTRO NO
+LIVRO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+STATUS</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>STATUS
+DO 
+APOSTILAMENTO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+STATUS</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>COMENTAR
+SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+COMENTÁRIO DA
+SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>SITUAÇÃO
+JURÍDICA</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+DE  ENVIO
+PARA ASSJUR</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>SITUAÇÃO
+CONTÁBIL</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+DE  ENVIO
+PARA CONTABILIDADE</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>STATUS
+CONTÁBIL</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+DE  EMISSÃO DA
+NOTA TÉCNICA
+CONTÁBIL</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>SITUAÇÃO
+FINANCEIRA</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+DE  ENVIO
+PARA FINANCEIRO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>COMENTAR
+SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>ORIENTAÇÕES
+PARA AS DEMANDAS EM ANDAMENTO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>HISTÓRICO  MEMORIAL</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>TRANSCRIÇÃO
+DAS RESPOSTAS DE EMAIL</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>STATUS
+ PE INTEGRADO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+90</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+60</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+30</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+10</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>SEI 2025
+(PAGAMENTO)</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>NÚMERO
+DA NOTA FISCAL</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>VALOR (R$)
+DA NOTA FISCAL</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA DE
+EMISSÃO
+DA NOTA FISCAL</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA DE
+RECEPÇÃO
+DA NOTA FISCAL</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA DE
+ENVIO
+AO FISCAL</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name> DATA DO
+ATESTO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA DE ENVIO À
+DOF</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>SITUAÇÃO DO
+ATESTO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+    </fields>
+    <file>
+      <name>${PROJECT_HOME}/Dados/RESIDÊNCIA ATUALIZADO EM 06 ABR CONTRATOS - GERENCIAMENTO 2026.xlsx</name>
+    </file>
+    <header>Y</header>
+    <ignore_fields>N</ignore_fields>
+    <limit>0</limit>
+    <line_number_files_extension>line</line_number_files_extension>
+    <noempty>Y</noempty>
+    <sheets>
+      <sheet>
+        <name>PGC 2025🚧 ATUALIZAR AQUI TAMBÉ</name>
+        <startcol>1</startcol>
+        <startrow>3</startrow>
+      </sheet>
+    </sheets>
+    <spreadsheet_type>POI</spreadsheet_type>
+    <stoponempty>N</stoponempty>
+    <strict_types>N</strict_types>
+    <attributes/>
+    <GUI>
+      <xloc>80</xloc>
+      <yloc>80</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Ent_contrato_2026</name>
+    <type>ExcelInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <accept_filenames>N</accept_filenames>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <encoding>UTF-8</encoding>
+    <error_ignored>N</error_ignored>
+    <error_line_files_extension>error</error_line_files_extension>
+    <error_line_skipped>N</error_line_skipped>
+    <fields>
+      <field>
+        <length>-1</length>
+        <name>CONTRATADA</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>CNPJ DA
+ CONTRATADA</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>OBJETO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>CATEGORIA DO
+OBJETO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>RESUMO DO OBJETO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>UNIDADE BENEFICIADA</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DESTAQUE</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>SEI
+ORIGINÁRIO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>SEI 2026
+(PAGAMENTO)</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>NÚMERO DO CONTRATO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>ANO DO CONTRATO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>VIGÊNCIA</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>UNIDADE DE MEDIDA DA VIGÊNCIA</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>INÍCIO DA VIGÊNCIA</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>FIM DA VIGÊNCIA</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>PRAZO DE
+REMANESCENTE</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>NOTIFICAÇÃO DE
+TEMPESTIVIDADE</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DECISÃO DO GESTOR E/OU DO FISCAL</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>GESTOR DO CONTRATO
+(NOME)</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>SETOR/UNIDADE
+DO GESTOR</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>EMAIL
+GESTOR DO CONTRATO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>FISCAL DO CONTRATO
+(NOME)</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>SETOR/UNIDADE
+DO FISCAL</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>EMAIL
+FISCAL DO CONTRATO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>SERVIDOR RESPONSÁVEL PELO ACOMPANHAMENTO DA GESTÃO CONTRATUAL</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>REPRESENTANTE LEGAL DA CONTRATADA - RLC
+(NOME)</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>FUNÇÃO DO RLC</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>RESPONSÁVEL TÉCNICO DA CONTRATADA - RTC
+(NOME)</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>TELEFONE DE CONTATO DO RTC</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>E-MAIL DO RTC</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>TIPO DE LOGRADOURO DA CONTRATADA</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>LOGRADOURO DA CONTRATADA</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>NÚMERO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>COMPLEMENTO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>BAIRRO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>CIDADE</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>UNIDADE FEDERATIVA (UF)</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>CEP</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>PROCESSO LICITATÓRIO </name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>MODALIDADE</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>EMPENHO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>VALOR TOTAL DO CONTRATO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>VALOR MENSAL DO CONTRATO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>VALOR EXECUTADO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>ADITIVO DE PRAZO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>ADITIVO DE VALOR</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>Nº DO APOSTILAMENTO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>CONTRATO REGIDO PELA
+LEI</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>CONTRATO
+PE INTEGRADO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>STATUS
+DO CADASTRO NO
+PE INTEGRADO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+STATUS</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>COMENTAR
+SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+COMENTÁRIO DA
+SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>CONTRATO EFISCO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>STATUS
+DO CADASTRO NO
+EFISCO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+STATUS</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>COMENTAR
+SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+COMENTÁRIO DA
+SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>STATUS
+DO CADASTRO NO
+REMESSATCE/PE</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+STATUS</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>COMENTAR
+SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+COMENTÁRIO DA
+SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>STATUS
+DO CADASTRO
+TRANSFEREGOV
+RECURSO DE CONVÊNIO FEDERAL</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+STATUS</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>COMENTAR
+SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+COMENTÁRIO DA
+SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>STATUS
+DA PUBLICAÇÃO NO
+DOE</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+STATUS</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>STATUS
+DO REGISTRO NO
+LIVRO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+STATUS</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>STATUS
+DO 
+APOSTILAMENTO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+STATUS</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>COMENTAR
+SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+REFERENTE AO
+COMENTÁRIO DA
+SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>SITUAÇÃO
+JURÍDICA</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+DE  ENVIO
+PARA ASSJUR</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>SITUAÇÃO
+CONTÁBIL</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+DE  ENVIO
+PARA CONTABILIDADE</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>STATUS
+CONTÁBIL</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+DE  EMISSÃO DA
+NOTA TÉCNICA
+CONTÁBIL</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>SITUAÇÃO
+FINANCEIRA</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+DE  ENVIO
+PARA FINANCEIRO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>COMENTAR
+SITUAÇÃO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>ORIENTAÇÕES
+PARA AS DEMANDAS EM ANDAMENTO</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>HISTÓRICO  MEMORIAL</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>TRANSCRIÇÃO
+DAS RESPOSTAS DE EMAIL</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+90</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+60</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+30</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>DATA
+10</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+      <field>
+        <length>-1</length>
+        <name>SEI 2025
+(PAGAMENTO)</name>
+        <precision>-1</precision>
+        <repeat>N</repeat>
+        <trim_type>none</trim_type>
+        <type>String</type>
+      </field>
+    </fields>
+    <file>
+      <name>${PROJECT_HOME}/Dados/RESIDÊNCIA ATUALIZADO EM 06 ABR CONTRATOS - GERENCIAMENTO 2026.xlsx</name>
+    </file>
+    <header>Y</header>
+    <ignore_fields>N</ignore_fields>
+    <limit>0</limit>
+    <line_number_files_extension>line</line_number_files_extension>
+    <noempty>Y</noempty>
+    <sheets>
+      <sheet>
+        <name>🟢PGC2️⃣0️⃣2️⃣6️⃣🚧</name>
+        <startcol>2</startcol>
+        <startrow>3</startrow>
+      </sheet>
+    </sheets>
+    <spreadsheet_type>POI</spreadsheet_type>
+    <stoponempty>N</stoponempty>
+    <strict_types>N</strict_types>
+    <attributes/>
+    <GUI>
+      <xloc>80</xloc>
+      <yloc>256</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Ext_vigencia</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <calculation>
+      <calc_type>DAY_OF_MONTH</calc_type>
+      <field_a>ini_vigencia</field_a>
+      <field_name>dia_inicio</field_name>
+      <remove>N</remove>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <value_type>Integer</value_type>
+    </calculation>
+    <calculation>
+      <calc_type>MONTH_OF_DATE</calc_type>
+      <field_a>ini_vigencia</field_a>
+      <field_name>mes_inicio</field_name>
+      <remove>N</remove>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <value_type>Integer</value_type>
+    </calculation>
+    <calculation>
+      <calc_type>YEAR_OF_DATE</calc_type>
+      <field_a>ini_vigencia</field_a>
+      <field_name>ano_inicio</field_name>
+      <remove>N</remove>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <value_type>Integer</value_type>
+    </calculation>
+    <calculation>
+      <calc_type>DAY_OF_MONTH</calc_type>
+      <field_a>fim_vigencia</field_a>
+      <field_name>dia_fim</field_name>
+      <remove>N</remove>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <value_type>Integer</value_type>
+    </calculation>
+    <calculation>
+      <calc_type>MONTH_OF_DATE</calc_type>
+      <field_a>fim_vigencia</field_a>
+      <field_name>mes_fim</field_name>
+      <remove>N</remove>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <value_type>Integer</value_type>
+    </calculation>
+    <calculation>
+      <calc_type>YEAR_OF_DATE</calc_type>
+      <field_a>fim_vigencia</field_a>
+      <field_name>ano_fim</field_name>
+      <remove>N</remove>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <value_type>Integer</value_type>
+    </calculation>
+    <failIfNoFile>Y</failIfNoFile>
+    <attributes/>
+    <GUI>
+      <xloc>1504</xloc>
+      <yloc>368</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Fim_semestre</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <field_to_use>mes_fim</field_to_use>
+    <fields>
+      <field>
+        <source_value>1</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>2</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>3</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>4</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>5</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>6</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>7</source_value>
+        <target_value>2</target_value>
+      </field>
+      <field>
+        <source_value>8</source_value>
+        <target_value>2</target_value>
+      </field>
+      <field>
+        <source_value>9</source_value>
+        <target_value>2</target_value>
+      </field>
+      <field>
+        <source_value>10</source_value>
+        <target_value>2</target_value>
+      </field>
+      <field>
+        <source_value>11</source_value>
+        <target_value>2</target_value>
+      </field>
+      <field>
+        <source_value>12</source_value>
+        <target_value>2</target_value>
+      </field>
+    </fields>
+    <target_field>semestre_fim</target_field>
+    <attributes/>
+    <GUI>
+      <xloc>1216</xloc>
+      <yloc>368</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Ini_semestre</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <field_to_use>mes_inicio</field_to_use>
+    <fields>
+      <field>
+        <source_value>1</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>2</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>3</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>4</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>5</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>6</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>7</source_value>
+        <target_value>2</target_value>
+      </field>
+      <field>
+        <source_value>8</source_value>
+        <target_value>2</target_value>
+      </field>
+      <field>
+        <source_value>9</source_value>
+        <target_value>2</target_value>
+      </field>
+      <field>
+        <source_value>10</source_value>
+        <target_value>2</target_value>
+      </field>
+      <field>
+        <source_value>11</source_value>
+        <target_value>2</target_value>
+      </field>
+      <field>
+        <source_value>12</source_value>
+        <target_value>2</target_value>
+      </field>
+    </fields>
+    <target_field>semestre_inicio</target_field>
+    <attributes/>
+    <GUI>
+      <xloc>1360</xloc>
+      <yloc>368</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Null_sei_pag</name>
+    <type>NullIf</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>sei_pagamento</name>
+        <value>XXXXX</value>
+      </field>
+      <field>
+        <name>sei_pagamento</name>
+        <value>xxxxxx</value>
+      </field>
+      <field>
+        <name>sei_pagamento</name>
+        <value>XXXXXX</value>
+      </field>
+    </fields>
+    <attributes/>
+    <GUI>
+      <xloc>464</xloc>
+      <yloc>160</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Num_contrato25</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <calculation>
+      <calc_type>ADD</calc_type>
+      <field_a>NÚMERO DO CONTRATO</field_a>
+      <field_b>ANO DO CONTRATO</field_b>
+      <field_name>num_contrato</field_name>
+      <remove>N</remove>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <value_type>String</value_type>
+    </calculation>
+    <failIfNoFile>Y</failIfNoFile>
+    <attributes/>
+    <GUI>
+      <xloc>224</xloc>
+      <yloc>80</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Num_contrato26</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <calculation>
+      <calc_type>ADD</calc_type>
+      <field_a>NÚMERO DO CONTRATO</field_a>
+      <field_b>ANO DO CONTRATO</field_b>
+      <field_name>num_contrato</field_name>
+      <remove>N</remove>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <value_type>String</value_type>
+    </calculation>
+    <failIfNoFile>Y</failIfNoFile>
+    <attributes/>
+    <GUI>
+      <xloc>224</xloc>
+      <yloc>256</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Pad_cat_obj</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <field_to_use>cat_objeto</field_to_use>
+    <fields>
+      <field>
+        <source_value>FORNECIMENTO DE EQUIPAMENTO</source_value>
+        <target_value>Equipamento</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇOS DE ENGENHARIA - OBRAS - REFORMAS - MANUTENÇÕES</source_value>
+        <target_value>Serviço de engenharia </target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO DE PRESTAÇÃO CONTINUADA</source_value>
+        <target_value>Serviço contínuo</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO DE PRESTAÇÃO CONTINUADA COM DEDICAÇÃO EXCLUSIVA DE MÃO DE OBRA</source_value>
+        <target_value>Serviço com mão de obra</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO DE PRESTAÇÃO NÃO CONTINUADA - POR DEMANDA OU EVENTO ESPECÍFICO</source_value>
+        <target_value>Serviço por demanda</target_value>
+      </field>
+    </fields>
+    <non_match_default>Outros</non_match_default>
+    <attributes/>
+    <GUI>
+      <xloc>944</xloc>
+      <yloc>160</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Pad_contratada</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <field_to_use>contratada</field_to_use>
+    <fields>
+      <field>
+        <source_value>POLO COMERCIAL DE CARUARU LTDA</source_value>
+        <target_value>Polo Comercial de Caruaru </target_value>
+      </field>
+      <field>
+        <source_value>MAXIFROTA SERVIÇOS DE MANUTENÇÃO E FROTA</source_value>
+        <target_value>Maxifrota S. de Manutenção e Frota</target_value>
+      </field>
+      <field>
+        <source_value>EMPRESA BRASILEIRA DE CORREIOS E TELÉGRAFOS  ETC</source_value>
+        <target_value>Empresa B. de Correios e Telégrafos</target_value>
+      </field>
+      <field>
+        <source_value>KÁTIA CRISTINA PEREIRA DE FREITAS</source_value>
+        <target_value>Kátia Cristina Pereira de Freitas</target_value>
+      </field>
+      <field>
+        <source_value>ALFORGE SEGURANÇA PATRIMONIAL LTDA</source_value>
+        <target_value>Alforge Segurança Patrimonial</target_value>
+      </field>
+      <field>
+        <source_value>ACTIVE GESTÃO E SERVIÇOS LTDA</source_value>
+        <target_value>Active Gestão e Serviços </target_value>
+      </field>
+      <field>
+        <source_value>PROSEL TERCEIRIZAÇÃO LIMPEZA E CONSTRUÇÃO EIRELI</source_value>
+        <target_value>Prosel T. Limpeza e Construção</target_value>
+      </field>
+      <field>
+        <source_value>TOGGI SERVICE LIMPEZA E CONSERVAÇÃO EIRELI</source_value>
+        <target_value>Toggi Service Limpeza e Conservação </target_value>
+      </field>
+      <field>
+        <source_value>ELENET SERVICOS TECNICOS LTDA</source_value>
+        <target_value>Elenet Servicos Tecnicos </target_value>
+      </field>
+      <field>
+        <source_value>COMPANHIA EDITORA DE PERNAMBUCO  CEPE</source_value>
+        <target_value>CEPE</target_value>
+      </field>
+      <field>
+        <source_value>"COMPANHIA EDITORA DE PERNAMBUCO  CEPE "</source_value>
+        <target_value>CEPE</target_value>
+      </field>
+      <field>
+        <source_value>SERCOSERV SERVIÇOS TERCEIRIZADOS LTDA</source_value>
+        <target_value>Sercoserv Serviços Terceirizados </target_value>
+      </field>
+      <field>
+        <source_value>TK ELEVADORES BRASIL LTDA</source_value>
+        <target_value>TK Elevadores Brasil </target_value>
+      </field>
+      <field>
+        <source_value>RM TERCEIRIZAÇÃO E GESTÃO DE RECURSOS HUMANOS EIRELI</source_value>
+        <target_value>RM T. e Gestão de Recursos Humanos </target_value>
+      </field>
+      <field>
+        <source_value>JMF CONSTRUÇÕES E SERVIÇOS TERCEIRIZADOS EIRELI EPP</source_value>
+        <target_value>JMF Construções e Serviços Terceirizados </target_value>
+      </field>
+      <field>
+        <source_value>ÁGUIA SERVIÇOS DE VIGILÂNCIA LTDA</source_value>
+        <target_value>Águia Serviços de Vigilância </target_value>
+      </field>
+      <field>
+        <source_value>MAPROS LTDA</source_value>
+        <target_value>Mapros</target_value>
+      </field>
+      <field>
+        <source_value>REDE NACIONAL DE ENSINO E PESQUISA - RNP</source_value>
+        <target_value>RNP</target_value>
+      </field>
+      <field>
+        <source_value>"ASSOCIACAO PARANAENSE DE CULTURA PERGAMUM"</source_value>
+        <target_value>Associacao P. de Cultura Pergamum</target_value>
+      </field>
+      <field>
+        <source_value>BRAZON </source_value>
+        <target_value>Brazon</target_value>
+      </field>
+      <field>
+        <source_value>MAXFILTER INDÚSTRIA E LOCAÇÃO DE PURIFICADORES DE ÁGUA LTDA</source_value>
+        <target_value>Maxfilter I. e L. de Purificadores de Água</target_value>
+      </field>
+      <field>
+        <source_value>DIBASA COMÉRCIO E SERVIÇOS LTDA EPP</source_value>
+        <target_value>Dibasa Comércio e Serviços </target_value>
+      </field>
+      <field>
+        <source_value>UNIVERSIDADE FEDERAL DE PERNAMBUCO - UFPE</source_value>
+        <target_value>UFPE</target_value>
+      </field>
+      <field>
+        <source_value>CONSTRUTORA AURÉLIO E SERVIÇOS LTDA</source_value>
+        <target_value>Construtora Aurélio e Serviços </target_value>
+      </field>
+      <field>
+        <source_value>MINHA BIBLIOTECA LTDA</source_value>
+        <target_value>Minha Biblioteca </target_value>
+      </field>
+      <field>
+        <source_value>NEOENERGIA</source_value>
+        <target_value>Neoenergia</target_value>
+      </field>
+      <field>
+        <source_value>MÁXXIMA EMPREENDIMENTOS LTDA</source_value>
+        <target_value>Máxxima Empreendimentos </target_value>
+      </field>
+      <field>
+        <source_value>CENTRO DE INTEGRAÇÃO EMPRESA ESCOLA DE PERNAMBUCO CIEE</source_value>
+        <target_value>CIEE</target_value>
+      </field>
+      <field>
+        <source_value>SIMPRESS COMÉRCIO LOCAÇÃO E SERVIÇOS LTDA</source_value>
+        <target_value>Simpress Comércio Locação e Serviços </target_value>
+      </field>
+      <field>
+        <source_value>EBSCO BRASIL LTDA</source_value>
+        <target_value>Ebsco Brasil </target_value>
+      </field>
+      <field>
+        <source_value>H.A.P.L. REFRIGERAÇÃO E SERVIÇOS EM GERAL LTDA</source_value>
+        <target_value>H.A.P.L. Refrigeração e Serviços em Geral </target_value>
+      </field>
+      <field>
+        <source_value>BENIT CONSTRUÇÕES, TERCEIRIZAÇÃO E SERVIÇOS LTDA</source_value>
+        <target_value>Benit Construções, Terceirização e Serviços </target_value>
+      </field>
+      <field>
+        <source_value>EP Engrenagem Produções e Serviços Ltda</source_value>
+        <target_value>EP Engrenagem Produções e Serviços</target_value>
+      </field>
+      <field>
+        <source_value>CASP Soluções Informática LTDA</source_value>
+        <target_value>CASP Soluções Informática </target_value>
+      </field>
+      <field>
+        <source_value>SERVITIUM LTDA</source_value>
+        <target_value>Servitium </target_value>
+      </field>
+      <field>
+        <source_value>MEDICAL HARBOUR APARELHOS MÉDICOHOSPITALARES E SERVIÇOS DE TECNOLOGIA LTDA</source_value>
+        <target_value>Medical H. A. M. H. e Serviços de Tecnologia </target_value>
+      </field>
+      <field>
+        <source_value>CS BRASIL FROTAS S.A</source_value>
+        <target_value>CS Brasil Frotas </target_value>
+      </field>
+      <field>
+        <source_value>OI S.A.  EM RECUPERACAO JUDICIAL</source_value>
+        <target_value>Oi </target_value>
+      </field>
+      <field>
+        <source_value>MCR SISTEMAS E CONSULTORIA LTDA</source_value>
+        <target_value>MCR Sistemas e Consultoria </target_value>
+      </field>
+      <field>
+        <source_value>RENOVATION SERVIÇOS E MANUTENÇÃO PREDIAL LTDA</source_value>
+        <target_value>Renovation Serviços e Manutenção Predial</target_value>
+      </field>
+      <field>
+        <source_value>SOLSERV SERVICOS LTDA</source_value>
+        <target_value>Solserv Servicos </target_value>
+      </field>
+      <field>
+        <source_value>WC VIAGENS E TURISMO LTDA</source_value>
+        <target_value>WC Viagens e Turismo </target_value>
+      </field>
+      <field>
+        <source_value>NAVERA ENGENHARIA LTDA</source_value>
+        <target_value>Navera Engenharia </target_value>
+      </field>
+      <field>
+        <source_value>AS SYSTEMS</source_value>
+        <target_value>AS Systems</target_value>
+      </field>
+      <field>
+        <source_value>DEBORA MARIA DE FARIAS CAVALCANTI</source_value>
+        <target_value>Debora Maria de Farias Cavalcanti</target_value>
+      </field>
+      <field>
+        <source_value>"S S SANEL SAUDE LTDA EPP "</source_value>
+        <target_value>S S Sanel Saude</target_value>
+      </field>
+      <field>
+        <source_value>COMPESA - COMPANHIA PERNAMBUCANA DE SANEAMENTO</source_value>
+        <target_value>COMPESA</target_value>
+      </field>
+      <field>
+        <source_value>MBM SEGURADORA</source_value>
+        <target_value>MBM Seguradora</target_value>
+      </field>
+      <field>
+        <source_value>IPCOMM TECNOLOGIA LTDA</source_value>
+        <target_value>IPCOMM Tecnologia </target_value>
+      </field>
+      <field>
+        <source_value>FWD INSTALAÇÕES LTDA</source_value>
+        <target_value>FWD Instalações </target_value>
+      </field>
+      <field>
+        <source_value>"FWD INSTALAÇÕES LTDA "</source_value>
+        <target_value>FWD Instalações </target_value>
+      </field>
+      <field>
+        <source_value>JME ENGENHARIA LTDA</source_value>
+        <target_value>JME Engenharia </target_value>
+      </field>
+      <field>
+        <source_value>INOVACOO TECNOLOGICA DO SERTAO DE ITAPARICA LTDA</source_value>
+        <target_value>Inovacoo T. do Sertao de Itaparica </target_value>
+      </field>
+      <field>
+        <source_value>SEC NOR DISTRIBUIDORA DE PUBLICAÇÕES</source_value>
+        <target_value>Sec Nor Distribuidora de Publicações</target_value>
+      </field>
+      <field>
+        <source_value>FPS PRESTADORA DE SERVIÇOS LTDA</source_value>
+        <target_value>FPS Prestadora de Serviços </target_value>
+      </field>
+      <field>
+        <source_value>RA DE OLIVEIRA Q. DA SILVEIRA SERVIÇOS</source_value>
+        <target_value>RA de Oliveira Q. da Silveira Serviços</target_value>
+      </field>
+      <field>
+        <source_value>LEXON SERVICOS &amp; CONSTRUTORA EMPREENDIMENTOS</source_value>
+        <target_value>Lexon S. &amp; Construtora Empreendimentos</target_value>
+      </field>
+      <field>
+        <source_value>NEWMED LTDA</source_value>
+        <target_value>Newmed </target_value>
+      </field>
+      <field>
+        <source_value>GETINGE DO BRASIL LTDA.</source_value>
+        <target_value>Getinge do Brasil </target_value>
+      </field>
+      <field>
+        <source_value>RM TERCEIRIZACAO E GESTAO DE RECURSOS HUMANOS LTDA</source_value>
+        <target_value>RM T. e Gestão de Recursos Humanos </target_value>
+      </field>
+      <field>
+        <source_value>SRD  TECNOLOGIA E INFORMACAO CIENTIFICA LTDA</source_value>
+        <target_value>SRD Tecnologia e Informacao Cientifica </target_value>
+      </field>
+      <field>
+        <source_value>GETINGE DO BRASIL EQUIPAMENTOS MEDICOS LTDA</source_value>
+        <target_value>Getinge do Brasil Equipamentos Medicos </target_value>
+      </field>
+      <field>
+        <source_value>ONZE CONSTRUÇÕES LTDA</source_value>
+        <target_value>Onze Construções </target_value>
+      </field>
+      <field>
+        <source_value>ARPSIST SERVIÇOS DE ENGENHARIA LTDA</source_value>
+        <target_value>ARPSIST Serviços de Engenharia </target_value>
+      </field>
+      <field>
+        <source_value>PEARSON EDUCATION DO BRASIL LTDA</source_value>
+        <target_value>Pearson Education do Brasil </target_value>
+      </field>
+      <field>
+        <source_value>FORALL ASSINATURAS E LIVROS LTDA</source_value>
+        <target_value>Forall Assinaturas e Livros </target_value>
+      </field>
+      <field>
+        <source_value>"SIG SOFTWARE &amp; CONSULTORIA EM TECNOLOGIA DA INFORMACAO LTDA"</source_value>
+        <target_value>SIG S. &amp; C. em Tecnologia da Informacao </target_value>
+      </field>
+      <field>
+        <source_value>PHILIPS MEDICAL SYSTEMS LTDA</source_value>
+        <target_value>Philips Medical Systems </target_value>
+      </field>
+      <field>
+        <source_value>GE HEALTHCARE DO BRASIL COMERCIO E SERVICOS PARA EQUIPAMENTOS MEDICO</source_value>
+        <target_value>GE H. do B. C. e S. para Equipamentos Medico</target_value>
+      </field>
+      <field>
+        <source_value>WERNETECH INFORMATICA LTDA</source_value>
+        <target_value>Wernetech Informatica </target_value>
+      </field>
+      <field>
+        <source_value>SAFE SUPORTE A VIDA E COMERCIO INTERNACIONAL LTDA</source_value>
+        <target_value>Safe S. a Vida e Comercio Internacional </target_value>
+      </field>
+      <field>
+        <source_value>SECO AMBIENTAL, SERVIÇOS, PESQUISAS E CONSTRUTORA LTDA</source_value>
+        <target_value>Seco A. Serviços Pesquisas e Construtora </target_value>
+      </field>
+      <field>
+        <source_value>VITOR E BUONO LTDA</source_value>
+        <target_value>Vitor e Buono</target_value>
+      </field>
+      <field>
+        <source_value>DINAMÉRICA SERVIÇOS GERAIS EIRELI ME</source_value>
+        <target_value>Dinamérica Serviços Gerais </target_value>
+      </field>
+      <field>
+        <source_value>SEC NOR DISTRIBUIDORA DE PUBLICACOES LTDA ME</source_value>
+        <target_value>Sec Nor Distribuidora de Publicacoes </target_value>
+      </field>
+      <field>
+        <source_value>MARANATA PRESTADORA DE SERVIÇOS E CONSTRUÇÕES LTDA</source_value>
+        <target_value>Maranata P. de Serviços e Construções </target_value>
+      </field>
+      <field>
+        <source_value>ASA RENT A CAR LOCACAO DE VEICULOS LTDA</source_value>
+        <target_value>Asa Rent a Car Locacao de Veiculos </target_value>
+      </field>
+      <field>
+        <source_value>CPTEC SOLUCÕES EM TECNOLOGIA DA INFORMACÃO LTDA</source_value>
+        <target_value>CPTEC Solucões em Tecnologia da Informacão </target_value>
+      </field>
+      <field>
+        <source_value>APPROACH TECNOLOGIA LTDA</source_value>
+        <target_value>Approach Tecnologia </target_value>
+      </field>
+      <field>
+        <source_value>TOPPUS SERVIÇOS TERCEIRIZADOS EIRELI</source_value>
+        <target_value>Toppus Serviços Terceirizados </target_value>
+      </field>
+      <field>
+        <source_value>AUTOGRAFIA EDIÇÃO COMUNICAÇÃO E COMÉRCIO LTDA</source_value>
+        <target_value>Autografia E. Comunicação e Comércio</target_value>
+      </field>
+      <field>
+        <source_value>EFICAZ SERVIÇOS E TERCEIRIZACÕES LTDA</source_value>
+        <target_value>Eficaz Serviços e Terceirizacões </target_value>
+      </field>
+      <field>
+        <source_value>W DE AMORIM ROZENDO COMÉRCIO E SERVIÇOS</source_value>
+        <target_value>W de Amorim R. Comércio e Serviços</target_value>
+      </field>
+      <field>
+        <source_value>BRASLUSO TURISMO LTDA</source_value>
+        <target_value>Brasluso Turismo</target_value>
+      </field>
+      <field>
+        <source_value>BBC SERVICOS DE VIGILANCIA LTDA</source_value>
+        <target_value>BBC Servicos de Vigilancia </target_value>
+      </field>
+      <field>
+        <source_value>RM TERCEIRIZAÇÃO E GESTÃO DE RECURSOS HUMANOS LTDA</source_value>
+        <target_value>RM T. e G. de Recursos Humanos </target_value>
+      </field>
+      <field>
+        <source_value>ENGEMAIA &amp; CIA LTDA</source_value>
+        <target_value>Engemaia &amp; Cia </target_value>
+      </field>
+      <field>
+        <source_value>LUCIANO BEZERRA DA SILVA  ME</source_value>
+        <target_value>Luciano Bezerra da Silva </target_value>
+      </field>
+      <field>
+        <source_value>CLARO S.A.</source_value>
+        <target_value>Claro </target_value>
+      </field>
+      <field>
+        <source_value>Gestão de Terceirização em Serviços Seleção e Agenciamento de Mão de Obra</source_value>
+        <target_value>Gestão de T. em S. S. e A. de Mão de Obra</target_value>
+      </field>
+      <field>
+        <source_value>DTEL Telecom LTDA</source_value>
+        <target_value>DTEL Telecom </target_value>
+      </field>
+      <field>
+        <source_value>G S DE PAULA FIREWARE DIGITAL</source_value>
+        <target_value>G S de Paula Fireware Digital</target_value>
+      </field>
+      <field>
+        <source_value>SIEMENS HEALTHCARE DIAGNOSTICOS LTDA (TOMOGRAFIA)</source_value>
+        <target_value>Siemens Healthcare Diagnosticos</target_value>
+      </field>
+      <field>
+        <source_value>SIEMENS HEALTHCARE DIAGNOSTICOS LTDA (RESSONÂNCIA)</source_value>
+        <target_value>Siemens Healthcare Diagnosticos </target_value>
+      </field>
+      <field>
+        <source_value>ABS TRANSPORTES E TURISMO</source_value>
+        <target_value>ABS Transportes e Turismo</target_value>
+      </field>
+      <field>
+        <source_value>DRAGER DO BRASIL LTDA</source_value>
+        <target_value>Drager do Brasil </target_value>
+      </field>
+      <field>
+        <source_value>LIDER NOTEBOOKS COMERCIO E SERVICOS LTDA</source_value>
+        <target_value>Lider Notebooks Comercio e Servicos</target_value>
+      </field>
+    </fields>
+    <non_match_default>Outros</non_match_default>
+    <attributes/>
+    <GUI>
+      <xloc>1168</xloc>
+      <yloc>256</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Pad_decisao</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <field_to_use>decisao</field_to_use>
+    <fields>
+      <field>
+        <source_value>PRORROGAR CONTRATO</source_value>
+        <target_value>Prorrogar</target_value>
+      </field>
+      <field>
+        <source_value>NÃO PRORROGAR CONTRATO - RESTAM PENDÊNCIAS</source_value>
+        <target_value>Não prorrogar</target_value>
+      </field>
+      <field>
+        <source_value>NÃO PRORROGAR CONTRATO</source_value>
+        <target_value>Não prorrogar</target_value>
+      </field>
+    </fields>
+    <non_match_default>Outros</non_match_default>
+    <attributes/>
+    <GUI>
+      <xloc>1056</xloc>
+      <yloc>160</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Pad_func_rlc</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <field_to_use>classificacao_rlc</field_to_use>
+    <fields>
+      <field>
+        <source_value>PROCURADOR</source_value>
+        <target_value>Procurador</target_value>
+      </field>
+      <field>
+        <source_value>SÓCIO ADMINISTRADOR</source_value>
+        <target_value>Sócio adminstrador</target_value>
+      </field>
+      <field>
+        <source_value>PRESIDENTE</source_value>
+        <target_value>Presidente</target_value>
+      </field>
+      <field>
+        <source_value>PESSOA FÍSICA</source_value>
+        <target_value>Pessoa física</target_value>
+      </field>
+      <field>
+        <source_value>REITOR</source_value>
+        <target_value>Reitor</target_value>
+      </field>
+    </fields>
+    <non_match_default>Outros</non_match_default>
+    <attributes/>
+    <GUI>
+      <xloc>1168</xloc>
+      <yloc>160</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Pad_modalidade</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <field_to_use>modalidade</field_to_use>
+    <fields>
+      <field>
+        <source_value>DISPENSA</source_value>
+        <target_value>Dispensa</target_value>
+      </field>
+      <field>
+        <source_value>DISPENSA EMERGENCIAL</source_value>
+        <target_value>Dispensa </target_value>
+      </field>
+      <field>
+        <source_value>DISPENSA DE LICITAÇÃO</source_value>
+        <target_value>Dispensa </target_value>
+      </field>
+      <field>
+        <source_value>ADESÃO A ATA DE REGISTRO DE PREÇO</source_value>
+        <target_value>Ata de registro de preço </target_value>
+      </field>
+      <field>
+        <source_value>ADESÃO À ATA DE REGISTRO DE PREÇO</source_value>
+        <target_value>Ata de registro de preço </target_value>
+      </field>
+      <field>
+        <source_value>ATA DE REGISTRO DE PREÇO CORPORATIVO ARPC</source_value>
+        <target_value>Ata de registro de preço </target_value>
+      </field>
+      <field>
+        <source_value>ADESAO A ATA OU CONTRATOS CORPORATIVOS</source_value>
+        <target_value>Ata ou contratos corporativos</target_value>
+      </field>
+      <field>
+        <source_value>ADESAO A ATA OU CONTRATOS CORPORATIVO</source_value>
+        <target_value>Ata ou contratos corporativos</target_value>
+      </field>
+      <field>
+        <source_value>ADESÃO À ATA OU CONTRATOS CORPORATIVOS</source_value>
+        <target_value>Ata ou contratos corporativos</target_value>
+      </field>
+      <field>
+        <source_value>PREGÃO ELETRÔNICO</source_value>
+        <target_value>Pregão eletrônico</target_value>
+      </field>
+      <field>
+        <source_value>PREGAO ELETRONICO</source_value>
+        <target_value>Pregão eletrônico</target_value>
+      </field>
+      <field>
+        <source_value>PREGÃO ELETRONICO</source_value>
+        <target_value>Pregão eletrônico</target_value>
+      </field>
+      <field>
+        <source_value>PREGÃO PRESENCIAL</source_value>
+        <target_value>Pregão presencial</target_value>
+      </field>
+      <field>
+        <source_value>INEXIGIBILIDADE</source_value>
+        <target_value>Inexigibilidade</target_value>
+      </field>
+      <field>
+        <source_value>"CONCORRÊNCIA ELETRÔNICA Nº 0001.2023"</source_value>
+        <target_value>Concorrência eletrônica</target_value>
+      </field>
+    </fields>
+    <non_match_default>Outros</non_match_default>
+    <attributes/>
+    <GUI>
+      <xloc>1280</xloc>
+      <yloc>256</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Pad_res_obj</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <field_to_use>res_objeto</field_to_use>
+    <fields>
+      <field>
+        <source_value>SERVIÇO - ABASTECIMENTO DE VEÍCULOS</source_value>
+        <target_value>Abastecimento de veículos</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - ÁGUA E ESGOTO</source_value>
+        <target_value>Água e esgoto</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - ARMAZENAMENTO EM NUVEM</source_value>
+        <target_value>Armazenamento em nuvem</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - ASSINATURA</source_value>
+        <target_value>Assinatura</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - COPEIRA</source_value>
+        <target_value>Copeira</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - CORREIOS</source_value>
+        <target_value>Correios</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - DEDETIZAÇÃO</source_value>
+        <target_value>Dedetização</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - DIGITALIZAÇÃO</source_value>
+        <target_value>Digitalização</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - DIPLOMA DIGITAL</source_value>
+        <target_value>Diploma digital</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - ENERGIA ELÉTRICA</source_value>
+        <target_value>Energia elétrica</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - ENGENHARIA - OBRAS</source_value>
+        <target_value>Engenharia - obras</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - ENGENHARIA - REFORMAS</source_value>
+        <target_value>Engenharia - reformas</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - ESTAGIÁRIOS</source_value>
+        <target_value>Estagiários</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - FORNECIMENTO DE ÁGUA MINERAL</source_value>
+        <target_value>Fornecimento de água mineral</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - GRÁFICA</source_value>
+        <target_value>Gráfica</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - INFORMAÇÕES FORENSES</source_value>
+        <target_value>Informações forenses</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - JARDINEIRO</source_value>
+        <target_value>Jardineiro</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - LICENÇAS</source_value>
+        <target_value>Licenças</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - LIMPEZA DE CAIXA DE ÁGUA</source_value>
+        <target_value>Limpeza de caixa de água</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - LIMPEZA PREDIAL</source_value>
+        <target_value>Limpeza predial</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - LOCAÇÃO DE IMÓVEL</source_value>
+        <target_value>Locação de imóvel</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - LOCAÇÃO DE IMPRESSORAS</source_value>
+        <target_value>Locação de impressoras</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - LOCAÇÃO DE PURIFICADOR DE ÁGUA</source_value>
+        <target_value>Locação de purificador de água</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - LOCAÇÃO DE VEÍCULOS</source_value>
+        <target_value>Locação de veículos</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - LOCAÇÃO NOBREAKS</source_value>
+        <target_value>Locação nobreaks</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - MANUTENÇÃO DE ANTENAS</source_value>
+        <target_value>Manutenção de antenas</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - MANUTENÇÃO DE AR-CONDICIONADO</source_value>
+        <target_value>Manutenção de ar-condicionado</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - MANUTENÇÃO DE ELEVADOR</source_value>
+        <target_value>Manutenção de elevador</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - MANUTENÇÃO DE GERADOR</source_value>
+        <target_value>Manutenção de gerador</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - MOTORISTA</source_value>
+        <target_value>Motorista</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - PASSAGENS AÉREAS</source_value>
+        <target_value>Passagens aéreas</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - PUBLICAÇÃO NO DOE/PE</source_value>
+        <target_value>Publicação no DOE</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - RECEPCIONISTA</source_value>
+        <target_value>Recepcionista</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - SEGURO</source_value>
+        <target_value>Seguro</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - SISTEMAS E SOFTWARES</source_value>
+        <target_value>Sistemas e softwares</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - TELEMÁTICA - TELEFONIA FIXA</source_value>
+        <target_value>Telemática - telefonia fixa</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - VIGILÂNCIA ARMADA</source_value>
+        <target_value>Vigilância armada</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - APOIO ADMINISTRATIVO</source_value>
+        <target_value>Apoio administrativo</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - CONSULTORIA ESPECIALIZADA</source_value>
+        <target_value>Consultoria especializada</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - EDIÇÃO DIAGRAMAÇÃO E AFINS</source_value>
+        <target_value>Edição </target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - ELETRICISTA</source_value>
+        <target_value>Eletricista</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - INTERNET</source_value>
+        <target_value>Internet</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - MANUTENÇÃO PREDIAL</source_value>
+        <target_value>Manutenção predial</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - PODA DE ÁRVORES</source_value>
+        <target_value>Poda de árvores</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - PORTEIRO</source_value>
+        <target_value>Porteiro</target_value>
+      </field>
+      <field>
+        <source_value>SERVIÇO - TELEMÁTICA - TELEFONIA MÓVEL</source_value>
+        <target_value>Telemática - telefonia móvel</target_value>
+      </field>
+      <field>
+        <source_value>EQUIPAMENTO - BALÃO INTRA-AÓRTICO</source_value>
+        <target_value>Balão intra-aórtico</target_value>
+      </field>
+      <field>
+        <source_value>EQUIPAMENTO - ECOCARDIÓGRAFO</source_value>
+        <target_value>Ecocardiógrafo</target_value>
+      </field>
+      <field>
+        <source_value>EQUIPAMENTO - ELETROCARDIÓGRAFO</source_value>
+        <target_value>Eletrocardiógrafo</target_value>
+      </field>
+      <field>
+        <source_value>EQUIPAMENTO - TORNO MECÂNICO</source_value>
+        <target_value>Torno mecânico</target_value>
+      </field>
+      <field>
+        <source_value>EQUIPAMENTO - ULTRASSONÓGRAFO</source_value>
+        <target_value>Ultrassonógrafo</target_value>
+      </field>
+      <field>
+        <source_value>EQUIPAMENTO - VENTILADOR PULMONAR</source_value>
+        <target_value>Ventilador pulmonar</target_value>
+      </field>
+      <field>
+        <source_value>EQUIPAMENTOS - VENTILADOR PULMONAR</source_value>
+        <target_value>Ventilador pulmonar</target_value>
+      </field>
+      <field>
+        <source_value>EQUIPAMENTO - ANESTESIA</source_value>
+        <target_value>Anestesia</target_value>
+      </field>
+      <field>
+        <source_value>EQUIPAMENTO - COMPUTADOR DESKTOP NOTEBOOK</source_value>
+        <target_value>Computador </target_value>
+      </field>
+      <field>
+        <source_value>EQUIPAMENTO - HEMODINÂMICA</source_value>
+        <target_value>Hemodinâmica</target_value>
+      </field>
+      <field>
+        <source_value>EQUIPAMENTOS - RESSONÂNCIA MAGNÉTICA E TOMÓGRAFO</source_value>
+        <target_value>Ressonância magnética e tomógrafo</target_value>
+      </field>
+    </fields>
+    <non_match_default>Outros</non_match_default>
+    <attributes/>
+    <GUI>
+      <xloc>944</xloc>
+      <yloc>256</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Pad_situacao</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <field_to_use>situacao</field_to_use>
+    <fields>
+      <field>
+        <source_value>EM EXECUÇÃO</source_value>
+        <target_value>Em execução</target_value>
+      </field>
+      <field>
+        <source_value>ENCERRADO</source_value>
+        <target_value>Encerrado</target_value>
+      </field>
+    </fields>
+    <attributes/>
+    <GUI>
+      <xloc>1392</xloc>
+      <yloc>256</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Pad_uni_ben</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <field_to_use>uni_beneficiada</field_to_use>
+    <fields>
+      <field>
+        <source_value>CAMPUS BENFICA</source_value>
+        <target_value>Benfica</target_value>
+      </field>
+      <field>
+        <source_value>CAMPUS BENFICA - POLI</source_value>
+        <target_value>Benfica - POLI</target_value>
+      </field>
+      <field>
+        <source_value>CAMPUS CARUARU</source_value>
+        <target_value>Caruaru</target_value>
+      </field>
+      <field>
+        <source_value>CAMPUS FOP</source_value>
+        <target_value>FOP</target_value>
+      </field>
+      <field>
+        <source_value>CAMPUS GARANHUS</source_value>
+        <target_value>Garanhuns</target_value>
+      </field>
+      <field>
+        <source_value>CAMPUS MATA NORTE</source_value>
+        <target_value>Mata Norte</target_value>
+      </field>
+      <field>
+        <source_value>CAMPUS MATA SUL</source_value>
+        <target_value>Mata Sul</target_value>
+      </field>
+      <field>
+        <source_value>CAMPUS SANTO AMARO</source_value>
+        <target_value>Santo Amaro</target_value>
+      </field>
+      <field>
+        <source_value>CAMPUS SURUBIM</source_value>
+        <target_value>Surubim</target_value>
+      </field>
+      <field>
+        <source_value>COMBO 1 - REITORIA - IIT - IC - CARUARU</source_value>
+        <target_value>Reitoria, IIT, IC e Caruaru</target_value>
+      </field>
+      <field>
+        <source_value>COMBO 11 - REITORIA - IIT - IC - CARUARU - FOP CAMARAGIBE</source_value>
+        <target_value>REitoria, IIT, IC, Caruaru e FOP</target_value>
+      </field>
+      <field>
+        <source_value>COMBO 3 - REITORIA - IIT</source_value>
+        <target_value>Reitoria e IIT</target_value>
+      </field>
+      <field>
+        <source_value>COMBO 6 - REITORIA - SURUBIM</source_value>
+        <target_value>Reitoria e Surubim</target_value>
+      </field>
+      <field>
+        <source_value>COMBO 7 - REITORIA - FOP CAMARAGIBE</source_value>
+        <target_value>Reitoria e FOP</target_value>
+      </field>
+      <field>
+        <source_value>COMBO 8 - IC - IIT</source_value>
+        <target_value>IIT e IC</target_value>
+      </field>
+      <field>
+        <source_value>COMBO 9 - PETROLINA - ARCOVERDE - SALGUEIRO</source_value>
+        <target_value>Petrolina, Arcoverde e Salgueiro</target_value>
+      </field>
+      <field>
+        <source_value>COMBO 10 - ESEF - FENSG - FCM - ICB - FOP CLINICAS</source_value>
+        <target_value>ESEF, FENSG, FCM, ICB e FOP</target_value>
+      </field>
+      <field>
+        <source_value>EAD - POLO TABIRA</source_value>
+        <target_value>Tabira</target_value>
+      </field>
+      <field>
+        <source_value>HUOC - HOSPITAL UNIVERSITÁRIO OSWALDO CRUZ</source_value>
+        <target_value>HUOC</target_value>
+      </field>
+      <field>
+        <source_value>IC - INSTITUTO CONFÚCIO</source_value>
+        <target_value>IC</target_value>
+      </field>
+      <field>
+        <source_value>IIT - INSTITUTO DE INOVAÇÃO TECNOLÓGICA</source_value>
+        <target_value>IIT</target_value>
+      </field>
+      <field>
+        <source_value>PROCAPE - PRONTOSOCORRO CARDIOLÓGICO UNIVERSITÁRIO DE PERNAMBUCO PROFESSOR LUIZ TAVARES</source_value>
+        <target_value>PROCAPE</target_value>
+      </field>
+      <field>
+        <source_value>REITORIA</source_value>
+        <target_value>Reitoria</target_value>
+      </field>
+      <field>
+        <source_value>UPE</source_value>
+        <target_value>UPE</target_value>
+      </field>
+    </fields>
+    <non_match_default>Outros</non_match_default>
+    <attributes/>
+    <GUI>
+      <xloc>1056</xloc>
+      <yloc>256</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Pad_val_mensal</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <field_to_use>val_mensal</field_to_use>
+    <fields>
+      <field>
+        <source_value>Medição</source_value>
+        <target_value>0</target_value>
+      </field>
+      <field>
+        <source_value>2 X 1.300,00 TOTAL 2.600,00</source_value>
+        <target_value>2.600,00</target_value>
+      </field>
+      <field>
+        <source_value>2 X 630,00 
+TOTAL 1.260,00</source_value>
+        <target_value>1.260,00</target_value>
+      </field>
+    </fields>
+    <attributes/>
+    <GUI>
+      <xloc>1392</xloc>
+      <yloc>160</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Rem_linha</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <case_sensitive>N</case_sensitive>
+        <in_stream_name>val_mensal</in_stream_name>
+        <is_unicode>N</is_unicode>
+        <replace_by_string> </replace_by_string>
+        <replace_string>[\r\n]+</replace_string>
+        <set_empty_string>N</set_empty_string>
+        <use_regex>Y</use_regex>
+        <whole_word>N</whole_word>
+      </field>
+    </fields>
+    <attributes/>
+    <GUI>
+      <xloc>1280</xloc>
+      <yloc>160</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Rem_null</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>val_executado</name>
+        <set_empty_string>N</set_empty_string>
+        <value>0</value>
+      </field>
+      <field>
+        <name>val_mensal</name>
+        <set_empty_string>N</set_empty_string>
+        <value>0</value>
+      </field>
+      <field>
+        <name>val_total</name>
+        <set_empty_string>N</set_empty_string>
+        <value>0</value>
+      </field>
+      <field>
+        <name>lei</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>adi_prazo</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>adi_valor</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>decisao</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>email_rtc</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>bairro</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>cat_objeto</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>num_contrato</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>contratada</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>cnpj</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>objeto</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>res_objeto</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>uni_beneficiada</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>sei_originario</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>sei_pagamento</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>ano_contrato</name>
+        <set_empty_string>N</set_empty_string>
+        <value>0</value>
+      </field>
+      <field>
+        <name>ini_vigencia</name>
+        <set_empty_string>N</set_empty_string>
+        <value>0</value>
+      </field>
+      <field>
+        <name>fim_vigencia</name>
+        <set_empty_string>N</set_empty_string>
+        <value>0</value>
+      </field>
+      <field>
+        <name>rlc</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>classificacao_rlc</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>rtc</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>telefone_rtc</name>
+        <set_empty_string>N</set_empty_string>
+        <value>0</value>
+      </field>
+      <field>
+        <name>tip_logadouro</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>logadouro_con</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>numero</name>
+        <set_empty_string>N</set_empty_string>
+        <value>0</value>
+      </field>
+      <field>
+        <name>complemento</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>cidade</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>uf</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>cep</name>
+        <set_empty_string>N</set_empty_string>
+        <value>0</value>
+      </field>
+      <field>
+        <name>npl</name>
+        <set_empty_string>N</set_empty_string>
+        <value>0</value>
+      </field>
+      <field>
+        <name>modalidade</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>num_empenho</name>
+        <set_empty_string>N</set_empty_string>
+        <value>0</value>
+      </field>
+      <field>
+        <name>num_apostilamento</name>
+        <set_empty_string>N</set_empty_string>
+        <value>0</value>
+      </field>
+      <field>
+        <name>situacao</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>num_peintegrado</name>
+        <set_empty_string>N</set_empty_string>
+        <value>0</value>
+      </field>
+      <field>
+        <name>sta_peintegrado</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>num_efisco</name>
+        <set_empty_string>N</set_empty_string>
+        <value>0</value>
+      </field>
+      <field>
+        <name>sta_efisco</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>sta_remessatce</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>sta_transferegov</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>sta_doe</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>logradouro</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>contato_rtc</name>
+        <set_empty_string>N</set_empty_string>
+        <value> </value>
+      </field>
+      <field>
+        <name>vigencia</name>
+        <set_empty_string>N</set_empty_string>
+        <value>0</value>
+      </field>
+      <field>
+        <name>dia_inicio</name>
+        <set_empty_string>N</set_empty_string>
+        <value>0</value>
+      </field>
+      <field>
+        <name>mes_inicio</name>
+        <set_empty_string>N</set_empty_string>
+        <value>0</value>
+      </field>
+      <field>
+        <name>ano_inicio</name>
+        <set_empty_string>N</set_empty_string>
+        <value>0</value>
+      </field>
+      <field>
+        <name>dia_fim</name>
+        <set_empty_string>N</set_empty_string>
+        <value>0</value>
+      </field>
+      <field>
+        <name>mes_fim</name>
+        <set_empty_string>N</set_empty_string>
+        <value>0</value>
+      </field>
+      <field>
+        <name>ano_fim</name>
+        <set_empty_string>N</set_empty_string>
+        <value>0</value>
+      </field>
+      <field>
+        <name>semestre_inicio</name>
+        <set_empty_string>N</set_empty_string>
+        <value>0</value>
+      </field>
+      <field>
+        <name>semestre_fim</name>
+        <set_empty_string>N</set_empty_string>
+        <value>0</value>
+      </field>
+    </fields>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+</valuetypes>
+    <attributes/>
+    <GUI>
+      <xloc>1072</xloc>
+      <yloc>368</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Rem_ponto</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <case_sensitive>N</case_sensitive>
+        <in_stream_name>val_executado</in_stream_name>
+        <is_unicode>N</is_unicode>
+        <replace_string>\.(?=.*,)</replace_string>
+        <set_empty_string>N</set_empty_string>
+        <use_regex>Y</use_regex>
+        <whole_word>N</whole_word>
+      </field>
+      <field>
+        <case_sensitive>N</case_sensitive>
+        <in_stream_name>val_total</in_stream_name>
+        <is_unicode>N</is_unicode>
+        <replace_string>\.(?=.*,)</replace_string>
+        <set_empty_string>N</set_empty_string>
+        <use_regex>Y</use_regex>
+        <whole_word>N</whole_word>
+      </field>
+      <field>
+        <case_sensitive>N</case_sensitive>
+        <in_stream_name>val_mensal</in_stream_name>
+        <is_unicode>N</is_unicode>
+        <replace_string>\.(?=.*,)</replace_string>
+        <set_empty_string>N</set_empty_string>
+        <use_regex>Y</use_regex>
+        <whole_word>N</whole_word>
+      </field>
+      <field>
+        <case_sensitive>N</case_sensitive>
+        <in_stream_name>num_contrato</in_stream_name>
+        <is_unicode>N</is_unicode>
+        <replace_string>\.</replace_string>
+        <set_empty_string>N</set_empty_string>
+        <use_regex>Y</use_regex>
+        <whole_word>N</whole_word>
+      </field>
+    </fields>
+    <attributes/>
+    <GUI>
+      <xloc>1504</xloc>
+      <yloc>160</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Rem_texto</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <case_sensitive>N</case_sensitive>
+        <in_stream_name>val_executado</in_stream_name>
+        <is_unicode>N</is_unicode>
+        <replace_string>[^0-9,.,]</replace_string>
+        <set_empty_string>N</set_empty_string>
+        <use_regex>Y</use_regex>
+        <whole_word>N</whole_word>
+      </field>
+      <field>
+        <case_sensitive>N</case_sensitive>
+        <in_stream_name>val_total</in_stream_name>
+        <is_unicode>N</is_unicode>
+        <replace_string>[^0-9,.,]</replace_string>
+        <set_empty_string>N</set_empty_string>
+        <use_regex>Y</use_regex>
+        <whole_word>N</whole_word>
+      </field>
+      <field>
+        <case_sensitive>N</case_sensitive>
+        <in_stream_name>val_mensal</in_stream_name>
+        <is_unicode>N</is_unicode>
+        <replace_string>[^0-9,.,]</replace_string>
+        <set_empty_string>N</set_empty_string>
+        <use_regex>Y</use_regex>
+        <whole_word>N</whole_word>
+      </field>
+      <field>
+        <case_sensitive>N</case_sensitive>
+        <in_stream_name>num_contrato</in_stream_name>
+        <is_unicode>N</is_unicode>
+        <replace_string>\.0</replace_string>
+        <set_empty_string>N</set_empty_string>
+        <use_regex>Y</use_regex>
+        <whole_word>N</whole_word>
+      </field>
+    </fields>
+    <attributes/>
+    <GUI>
+      <xloc>1504</xloc>
+      <yloc>256</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Rem_virgula</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <case_sensitive>N</case_sensitive>
+        <in_stream_name>val_executado</in_stream_name>
+        <is_unicode>N</is_unicode>
+        <replace_by_string>.</replace_by_string>
+        <replace_string>,</replace_string>
+        <set_empty_string>N</set_empty_string>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
+      </field>
+      <field>
+        <case_sensitive>N</case_sensitive>
+        <in_stream_name>val_total</in_stream_name>
+        <is_unicode>N</is_unicode>
+        <replace_by_string>.</replace_by_string>
+        <replace_string>,</replace_string>
+        <set_empty_string>N</set_empty_string>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
+      </field>
+      <field>
+        <case_sensitive>N</case_sensitive>
+        <in_stream_name>val_mensal</in_stream_name>
+        <is_unicode>N</is_unicode>
+        <replace_by_string>.</replace_by_string>
+        <replace_string>,</replace_string>
+        <set_empty_string>N</set_empty_string>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
+      </field>
+    </fields>
+    <attributes/>
+    <GUI>
+      <xloc>1616</xloc>
+      <yloc>160</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Sel_Feature25</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <length>-2</length>
+        <name>CONTRATADA</name>
+        <precision>-2</precision>
+        <rename>contratada</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>CNPJ DA
+ CONTRATADA</name>
+        <precision>-2</precision>
+        <rename>cnpj</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>OBJETO</name>
+        <precision>-2</precision>
+        <rename>objeto</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>CATEGORIA DO
+OBJETO</name>
+        <precision>-2</precision>
+        <rename>cat_objeto</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>RESUMO DO OBJETO</name>
+        <precision>-2</precision>
+        <rename>res_objeto</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>UNIDADE BENEFICIADA</name>
+        <precision>-2</precision>
+        <rename>uni_beneficiada</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>SEI
+ORIGINÁRIO</name>
+        <precision>-2</precision>
+        <rename>sei_originario</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>SEI 2025
+(PAGAMENTO)</name>
+        <precision>-2</precision>
+        <rename>sei_pagamento</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>ANO DO CONTRATO</name>
+        <precision>-2</precision>
+        <rename>ano_contrato</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>INÍCIO DA VIGÊNCIA</name>
+        <precision>-2</precision>
+        <rename>ini_vigencia</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>FIM DA VIGÊNCIA</name>
+        <precision>-2</precision>
+        <rename>fim_vigencia</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>DECISÃO DO GESTOR E/OU DO FISCAL</name>
+        <precision>-2</precision>
+        <rename>decisao</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>REPRESENTANTE LEGAL DA CONTRATADA - RLC
+(NOME)</name>
+        <precision>-2</precision>
+        <rename>rlc</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>FUNÇÃO DO RLC</name>
+        <precision>-2</precision>
+        <rename>classificacao_rlc</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>RESPONSÁVEL TÉCNICO DA CONTRATADA - RTC
+(NOME)</name>
+        <precision>-2</precision>
+        <rename>rtc</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>TELEFONE DE CONTATO DO RTC</name>
+        <precision>-2</precision>
+        <rename>telefone_rtc</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>E-MAIL DO RTC</name>
+        <precision>-2</precision>
+        <rename>email_rtc</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>TIPO DE LOGRADOURO DA CONTRATADA</name>
+        <precision>-2</precision>
+        <rename>tip_logadouro</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>LOGRADOURO DA CONTRATADA</name>
+        <precision>-2</precision>
+        <rename>logadouro_con</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>NÚMERO</name>
+        <precision>-2</precision>
+        <rename>numero</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>COMPLEMENTO</name>
+        <precision>-2</precision>
+        <rename>complemento</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>BAIRRO</name>
+        <precision>-2</precision>
+        <rename>bairro</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>CIDADE</name>
+        <precision>-2</precision>
+        <rename>cidade</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>UNIDADE FEDERATIVA (UF)</name>
+        <precision>-2</precision>
+        <rename>uf</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>CEP</name>
+        <precision>-2</precision>
+        <rename>cep</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>PROCESSO LICITATÓRIO </name>
+        <precision>-2</precision>
+        <rename>npl</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>MODALIDADE</name>
+        <precision>-2</precision>
+        <rename>modalidade</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>EMPENHO</name>
+        <precision>-2</precision>
+        <rename>num_empenho</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>VALOR TOTAL DO CONTRATO</name>
+        <precision>-2</precision>
+        <rename>val_total</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>VALOR MENSAL DO CONTRATO</name>
+        <precision>-2</precision>
+        <rename>val_mensal</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>VALOR EXECUTADO</name>
+        <precision>-2</precision>
+        <rename>val_executado</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>ADITIVO DE PRAZO</name>
+        <precision>-2</precision>
+        <rename>adi_prazo</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>ADITIVO DE VALOR</name>
+        <precision>-2</precision>
+        <rename>adi_valor</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>Nº DO APOSTILAMENTO</name>
+        <precision>-2</precision>
+        <rename>num_apostilamento</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>SITUAÇÃO</name>
+        <precision>-2</precision>
+        <rename>situacao</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>CONTRATO REGIDO PELA
+LEI</name>
+        <precision>-2</precision>
+        <rename>lei</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>CONTRATO
+PE INTEGRADO</name>
+        <precision>-2</precision>
+        <rename>num_peintegrado</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>STATUS
+DO CADASTRO NO
+PE INTEGRADO</name>
+        <precision>-2</precision>
+        <rename>sta_peintegrado</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>CONTRATO EFISCO</name>
+        <precision>-2</precision>
+        <rename>num_efisco</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>STATUS
+DO CADASTRO NO
+EFISCO</name>
+        <precision>-2</precision>
+        <rename>sta_efisco</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>STATUS
+DO CADASTRO NO
+REMESSATCE/PE</name>
+        <precision>-2</precision>
+        <rename>sta_remessatce</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>STATUS
+DO CADASTRO
+TRANSFEREGOV
+RECURSO DE CONVÊNIO FEDERAL</name>
+        <precision>-2</precision>
+        <rename>sta_transferegov</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>STATUS
+DA PUBLICAÇÃO NO
+DOE</name>
+        <precision>-2</precision>
+        <rename>sta_doe</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>num_contrato</name>
+        <precision>-2</precision>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <GUI>
+      <xloc>368</xloc>
+      <yloc>80</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Sel_Feature26</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <length>-2</length>
+        <name>CONTRATADA</name>
+        <precision>-2</precision>
+        <rename>contratada</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>CNPJ DA
+ CONTRATADA</name>
+        <precision>-2</precision>
+        <rename>cnpj</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>OBJETO</name>
+        <precision>-2</precision>
+        <rename>objeto</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>CATEGORIA DO
+OBJETO</name>
+        <precision>-2</precision>
+        <rename>cat_objeto</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>RESUMO DO OBJETO</name>
+        <precision>-2</precision>
+        <rename>res_objeto</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>UNIDADE BENEFICIADA</name>
+        <precision>-2</precision>
+        <rename>uni_beneficiada</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>DESTAQUE</name>
+        <precision>-2</precision>
+        <rename>destaque</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>SEI
+ORIGINÁRIO</name>
+        <precision>-2</precision>
+        <rename>sei_originario</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>SEI 2026
+(PAGAMENTO)</name>
+        <precision>-2</precision>
+        <rename>sei_pagamento</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>ANO DO CONTRATO</name>
+        <precision>-2</precision>
+        <rename>ano_contrato</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>INÍCIO DA VIGÊNCIA</name>
+        <precision>-2</precision>
+        <rename>ini_vigencia</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>FIM DA VIGÊNCIA</name>
+        <precision>-2</precision>
+        <rename>fim_vigencia</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>DECISÃO DO GESTOR E/OU DO FISCAL</name>
+        <precision>-2</precision>
+        <rename>decisao</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>REPRESENTANTE LEGAL DA CONTRATADA - RLC
+(NOME)</name>
+        <precision>-2</precision>
+        <rename>rlc</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>FUNÇÃO DO RLC</name>
+        <precision>-2</precision>
+        <rename>classificacao_rlc</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>RESPONSÁVEL TÉCNICO DA CONTRATADA - RTC
+(NOME)</name>
+        <precision>-2</precision>
+        <rename>rtc</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>TELEFONE DE CONTATO DO RTC</name>
+        <precision>-2</precision>
+        <rename>telefone_rtc</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>E-MAIL DO RTC</name>
+        <precision>-2</precision>
+        <rename>email_rtc</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>TIPO DE LOGRADOURO DA CONTRATADA</name>
+        <precision>-2</precision>
+        <rename>tip_logadouro</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>LOGRADOURO DA CONTRATADA</name>
+        <precision>-2</precision>
+        <rename>logadouro_con</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>NÚMERO</name>
+        <precision>-2</precision>
+        <rename>numero</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>COMPLEMENTO</name>
+        <precision>-2</precision>
+        <rename>complemento</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>BAIRRO</name>
+        <precision>-2</precision>
+        <rename>bairro</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>CIDADE</name>
+        <precision>-2</precision>
+        <rename>cidade</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>UNIDADE FEDERATIVA (UF)</name>
+        <precision>-2</precision>
+        <rename>uf</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>CEP</name>
+        <precision>-2</precision>
+        <rename>cep</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>PROCESSO LICITATÓRIO </name>
+        <precision>-2</precision>
+        <rename>npl</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>MODALIDADE</name>
+        <precision>-2</precision>
+        <rename>modalidade</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>EMPENHO</name>
+        <precision>-2</precision>
+        <rename>num_empenho</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>VALOR TOTAL DO CONTRATO</name>
+        <precision>-2</precision>
+        <rename>val_total</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>VALOR MENSAL DO CONTRATO</name>
+        <precision>-2</precision>
+        <rename>val_mensal</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>VALOR EXECUTADO</name>
+        <precision>-2</precision>
+        <rename>val_executado</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>ADITIVO DE PRAZO</name>
+        <precision>-2</precision>
+        <rename>adi_prazo</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>ADITIVO DE VALOR</name>
+        <precision>-2</precision>
+        <rename>adi_valor</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>Nº DO APOSTILAMENTO</name>
+        <precision>-2</precision>
+        <rename>num_apostilamento</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>SITUAÇÃO</name>
+        <precision>-2</precision>
+        <rename>situacao</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>CONTRATO REGIDO PELA
+LEI</name>
+        <precision>-2</precision>
+        <rename>lei</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>CONTRATO
+PE INTEGRADO</name>
+        <precision>-2</precision>
+        <rename>num_peintegrado</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>STATUS
+DO CADASTRO NO
+PE INTEGRADO</name>
+        <precision>-2</precision>
+        <rename>sta_peintegrado</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>CONTRATO EFISCO</name>
+        <precision>-2</precision>
+        <rename>num_efisco</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>STATUS
+DO CADASTRO NO
+EFISCO</name>
+        <precision>-2</precision>
+        <rename>sta_efisco</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>STATUS
+DO CADASTRO NO
+REMESSATCE/PE</name>
+        <precision>-2</precision>
+        <rename>sta_remessatce</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>STATUS
+DO CADASTRO
+TRANSFEREGOV
+RECURSO DE CONVÊNIO FEDERAL</name>
+        <precision>-2</precision>
+        <rename>sta_transferegov</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>STATUS
+DA PUBLICAÇÃO NO
+DOE</name>
+        <precision>-2</precision>
+        <rename>sta_doe</rename>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>num_contrato</name>
+        <precision>-2</precision>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <GUI>
+      <xloc>368</xloc>
+      <yloc>256</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Sel_campos</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <length>-2</length>
+        <name>id_dim_vigencia</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>id_dim_contrato</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>id_dim_contratada</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>id_dim_licitacao</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>val_executado</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>val_mensal</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>val_total</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>num_contrato</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>contratada</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>cnpj</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>objeto</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>cat_objeto</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>res_objeto</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>uni_beneficiada</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>sei_originario</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>sei_pagamento</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>ano_contrato</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>ini_vigencia</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>fim_vigencia</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>decisao</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>rlc</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>classificacao_rlc</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>rtc</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>npl</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>modalidade</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>num_empenho</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>adi_prazo</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>adi_valor</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>num_apostilamento</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>situacao</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>lei</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>num_peintegrado</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>sta_peintegrado</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>num_efisco</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>sta_efisco</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>sta_remessatce</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>sta_transferegov</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>sta_doe</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>logradouro</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>contato_rtc</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>vigencia</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>dia_inicio</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>mes_inicio</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>ano_inicio</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>dia_fim</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>mes_fim</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>ano_fim</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>semestre_inicio</name>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>semestre_fim</name>
+        <precision>-2</precision>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <GUI>
+      <xloc>480</xloc>
+      <yloc>480</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Sep_numerico</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compare>
+      <condition>
+        <conditions>
+</conditions>
+        <function>REGEXP</function>
+        <leftvalue>num_contrato</leftvalue>
+        <negated>N</negated>
+        <operator>-</operator>
+        <value>
+          <isnull>N</isnull>
+          <length>-1</length>
+          <name>constant</name>
+          <precision>-1</precision>
+          <text>^[0-9.]+$</text>
+          <type>String</type>
+        </value>
+      </condition>
+    </compare>
+    <send_false_to>nao_numerico</send_false_to>
+    <send_true_to>red_duplicidade</send_true_to>
+    <attributes/>
+    <GUI>
+      <xloc>688</xloc>
+      <yloc>160</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Tab_fatos</name>
+    <type>TextFileOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <schema_definition/>
+    <ignore_fields>N</ignore_fields>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>Y</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>Y</header>
+    <footer>N</footer>
+    <format>UNIX</format>
+    <compression>None</compression>
+    <encoding>UTF-8</encoding>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>FatosContratosV2.csv</name>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>Y</do_not_open_new_file_init>
+      <extention/>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery/>
+    </file>
+    <fields>
+      <field>
+        <name>id_dim_vigencia</name>
+        <type>Integer</type>
+        <format>####0;-####0</format>
+        <currency>R$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>10</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>id_dim_contrato</name>
+        <type>Integer</type>
+        <format>####0;-####0</format>
+        <currency>R$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>10</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>id_dim_contratada</name>
+        <type>Integer</type>
+        <format>####0;-####0</format>
+        <currency>R$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>10</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>id_dim_licitacao</name>
+        <type>Integer</type>
+        <format>####0;-####0</format>
+        <currency>R$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>10</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>val_executado</name>
+        <type>BigNumber</type>
+        <format/>
+        <currency>R$</currency>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>val_mensal</name>
+        <type>BigNumber</type>
+        <format/>
+        <currency>R$</currency>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>val_total</name>
+        <type>BigNumber</type>
+        <format/>
+        <currency>R$</currency>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>num_contrato</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>contratada</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>cnpj</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>objeto</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>cat_objeto</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>res_objeto</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>uni_beneficiada</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>sei_originario</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>sei_pagamento</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>ano_contrato</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>ini_vigencia</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>fim_vigencia</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>decisao</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>rlc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>classificacao_rlc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>rtc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>npl</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>modalidade</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>num_empenho</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>adi_prazo</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>adi_valor</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>num_apostilamento</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>situacao</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>lei</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>num_peintegrado</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>sta_peintegrado</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>num_efisco</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>sta_efisco</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>sta_remessatce</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>sta_transferegov</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>sta_doe</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>logradouro</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>contato_rtc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>vigencia</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>dia_inicio</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>mes_inicio</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>ano_inicio</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>dia_fim</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>mes_fim</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>ano_fim</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>semestre_inicio</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>semestre_fim</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <attributes/>
+    <GUI>
+      <xloc>1616</xloc>
+      <yloc>480</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Unificação</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <GUI>
+      <xloc>368</xloc>
+      <yloc>160</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>nao_numerico</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <GUI>
+      <xloc>688</xloc>
+      <yloc>80</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>ordenamento</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compress>N</compress>
+    <directory>${java.io.tmpdir}</directory>
+    <fields>
+      <field>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <name>num_contrato</name>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <sort_prefix>out</sort_prefix>
+    <sort_size>1000000</sort_size>
+    <unique_rows>N</unique_rows>
+    <attributes/>
+    <GUI>
+      <xloc>576</xloc>
+      <yloc>160</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>red_duplicidade</name>
+    <type>MemoryGroupBy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <aggregate>contratada</aggregate>
+        <subject>contratada</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>cnpj</aggregate>
+        <subject>cnpj</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>objeto</aggregate>
+        <subject>objeto</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>cat_objeto</aggregate>
+        <subject>cat_objeto</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>res_objeto</aggregate>
+        <subject>res_objeto</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>uni_beneficiada</aggregate>
+        <subject>uni_beneficiada</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>sei_originario</aggregate>
+        <subject>sei_originario</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>sei_pagamento</aggregate>
+        <subject>sei_pagamento</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>ano_contrato</aggregate>
+        <subject>ano_contrato</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>ini_vigencia</aggregate>
+        <subject>ini_vigencia</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>fim_vigencia</aggregate>
+        <subject>fim_vigencia</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>decisao</aggregate>
+        <subject>decisao</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>rlc</aggregate>
+        <subject>rlc</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>classificacao_rlc</aggregate>
+        <subject>classificacao_rlc</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>rtc</aggregate>
+        <subject>rtc</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>telefone_rtc</aggregate>
+        <subject>telefone_rtc</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>email_rtc</aggregate>
+        <subject>email_rtc</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>tip_logadouro</aggregate>
+        <subject>tip_logadouro</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>logadouro_con</aggregate>
+        <subject>logadouro_con</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>numero</aggregate>
+        <subject>numero</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>complemento</aggregate>
+        <subject>complemento</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>bairro</aggregate>
+        <subject>bairro</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>cidade</aggregate>
+        <subject>cidade</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>uf</aggregate>
+        <subject>uf</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>cep</aggregate>
+        <subject>cep</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>npl</aggregate>
+        <subject>npl</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>modalidade</aggregate>
+        <subject>modalidade</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>num_empenho</aggregate>
+        <subject>num_empenho</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>val_total</aggregate>
+        <subject>val_total</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>val_mensal</aggregate>
+        <subject>val_mensal</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>val_executado</aggregate>
+        <subject>val_executado</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>adi_prazo</aggregate>
+        <subject>adi_prazo</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>adi_valor</aggregate>
+        <subject>adi_valor</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>num_apostilamento</aggregate>
+        <subject>num_apostilamento</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>situacao</aggregate>
+        <subject>situacao</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>lei</aggregate>
+        <subject>lei</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>num_peintegrado</aggregate>
+        <subject>num_peintegrado</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>sta_peintegrado</aggregate>
+        <subject>sta_peintegrado</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>num_efisco</aggregate>
+        <subject>num_efisco</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>sta_efisco</aggregate>
+        <subject>sta_efisco</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>sta_remessatce</aggregate>
+        <subject>sta_remessatce</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>sta_transferegov</aggregate>
+        <subject>sta_transferegov</subject>
+        <type>FIRST</type>
+      </field>
+      <field>
+        <aggregate>sta_doe</aggregate>
+        <subject>sta_doe</subject>
+        <type>FIRST</type>
+      </field>
+    </fields>
+    <give_back_row>N</give_back_row>
+    <group>
+      <field>
+        <name>num_contrato</name>
+      </field>
+    </group>
+    <attributes/>
+    <GUI>
+      <xloc>800</xloc>
+      <yloc>160</yloc>
+    </GUI>
+  </transform>
+  <transform_error_handling>
+  </transform_error_handling>
+  <attributes/>
+</pipeline>
