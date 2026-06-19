@@ -284,17 +284,22 @@ Evolução temporal do comportamento dos contratos e direcionamento de fornecedo
 </div>
 
 
----
 
-## 💻 Como Executar o Projeto
+
+<p align="center">
+  ✦ ✦ ✦
+</p>
+
+
+
+## Como Executar o Projeto
 
 ### Pré-requisitos
 
 Antes de executar o dashboard, certifique-se de que os seguintes softwares estão instalados em sua máquina:
 
 * **Python 3.8 ou superior**
-* **Git** (opcional, caso utilize linha de comando)
-* **GitHub Desktop** (opcional, para clonar o repositório sem utilizar comandos)
+* **Git** ou **GitHub Desktop**
 * **Visual Studio Code (VS Code)**
 
 ### 1. Obtendo o Projeto
@@ -304,8 +309,8 @@ Antes de executar o dashboard, certifique-se de que os seguintes softwares estã
 Abra o terminal do sistema ou o terminal integrado do VS Code e execute:
 
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
-cd nome-do-repositorio
+git clone https://github.com/seu-usuario/dashboard-streamlit-upe.git
+cd dashboard-streamlit-upe
 ```
 
 #### Opção B – Clonando com GitHub Desktop
@@ -317,7 +322,7 @@ cd nome-do-repositorio
 5. Clique em **Clone**.
 6. Após a clonagem, clique em **Open in Visual Studio Code** para abrir o projeto.
 
----
+
 
 ### 2. Criando o Ambiente de Desenvolvimento (Opcional)
 
@@ -341,7 +346,7 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
----
+
 
 ### 3. Instalando as Dependências
 
@@ -355,7 +360,7 @@ pip install pandas
 pip install plotly
 ```
 
----
+
 
 ### 4. Verificando a Instalação do Streamlit
 
@@ -367,28 +372,45 @@ streamlit hello
 
 Uma página de demonstração será aberta automaticamente em seu navegador.
 
-> Observação: em algumas versões do Python podem ocorrer incompatibilidades com o Streamlit. Caso isso aconteça, recomenda-se utilizar um ambiente virtual com uma versão compatível do Python.
+> [!IMPORTANT]
+> Em algumas versões do Python podem ocorrer incompatibilidades com o Streamlit. Caso isso aconteça, recomenda-se utilizar um ambiente virtual com uma versão compatível do Python.
 
----
+
+
 
 ### 5. Estrutura Geral do Dashboard
 
 Ao abrir o código `dashboard.py` no VS Code, você visualizará a seguinte estrutura:
 
-1. CONFIGURAÇÕES: Inicialização da página do Streamlit.
-2. ESTILIZAÇÃO: CSS customizado injetado via Markdown para componentes e KPIs.
-3. CABEÇALHO: Elementos visuais de título da aplicação.
-4. CARREGAMENTO DE DADOS: Upload de arquivos e fallback para base local.
-5. PROCESSAMENTO DE DADOS: Tratamento, conversões de tipos e novas colunas.
-6. COMPONENTES SIDEBAR: Filtros laterais e lógicas de índices de datas.
-7. APLICAÇÃO DOS FILTROS: FILTRAGEM dinâmica do DataFrame principal.
-8. CÁLCULO E EXIBIÇÃO DE KPIS: Métricas resumidas apresentadas em cards.
-9. SEÇÃO ADMINISTRATIVA: Visualizações focadas em eficiência operacional.
-10. SEÇÃO FINANCEIRA: Visualizações focadas em gastos e execução financeira.
-11. SEÇÃO ESTRATÉGICA: Gráficos de tendências temporais e distribuições gerais.
-12. APRESENTAÇÃO E DOWNLOAD DA BASE: Visualização bruta e exportação CSV.
+```text
+dashboard.py
+│
+├── Configuração da Aplicação
+│   ├── 1. CONFIGURAÇÕES: inicialização da página do Streamlit.
+│   ├── 2. ESTILIZAÇÃO: CSS customizado injetado via Markdown para componentes e KPIs.
+│   └── 3. CABEÇALHO: elementos visuais de título da aplicação.
+│
+├── Preparação dos Dados
+│   ├── 4. CARREGAMENTO DE DADOS: upload de arquivos e fallback para base local.
+│   ├── 5. PROCESSAMENTO DE DADOS: tratamento, conversões de tipos e novas colunas.
+│   └── 6. COMPONENTES SIDEBAR: filtros laterais e lógicas de índices de datas.
+│
+├── Sistema de Filtros
+│   └── 7. APLICAÇÃO DOS FILTROS: filtragem dinâmica do DataFrame principal.
+│
+├── Indicadores e Métricas
+│   └── 8. CÁLCULO E EXIBIÇÃO DE KPIS: métricas resumidas apresentadas em cards.
+│
+├── Visualizações Analíticas
+│   ├── 9. SEÇÃO ADMINISTRATIVA: visualizações focadas em eficiência operacional.
+│   ├── 10. SEÇÃO FINANCEIRA: visualizações focadas em gastos e execução financeira.
+│   └── 11. SEÇÃO ESTRATÉGICA: gráficos de tendências temporais e distribuições gerais.
+│
+└── Exportação de Dados
+    └── 12. APRESENTAÇÃO E DOWNLOAD DA BASE: visualização bruta e exportação CSV.
+```
 
----
+
 
 ### 6. Executando o Dashboard
 
@@ -406,7 +428,7 @@ Também é possível acessar manualmente através do endereço:
 http://localhost:8888
 ```
 
----
+
 
 ### 7. Encerrando a Aplicação
 
@@ -417,14 +439,14 @@ Ctrl + C
 ```
 
 ---
-### 📄 Informações Adicionais
+#### 📄 Informações Adicionais
 
-* Para uma visão mais aprofundada, acesse o **artigo científico completo** desenvolvido durante a residência. Além de detalhar a metodologia, o referencial teórico e os resultados obtidos com o dashboard, o documento explora etapas avançadas não documentadas neste repositório, como a **aplicação de algoritmos de aprendizado de máquina (Machine Learning)** aos dados. [Clique aqui para ler]([inserir_link_aqui]).
+* Para uma visão mais aprofundada, acesse o **artigo científico completo** desenvolvido durante a residência. Além de detalhar a metodologia, o referencial teórico e os resultados obtidos com o dashboard, o documento explora etapas avançadas não documentadas neste repositório, como a **aplicação de algoritmos de aprendizado de máquina (Machine Learning)** aos dados. [Clique aqui para ler](https://github.com/johnnycleiton07/dashboard-streamlit-upe/tree/main/artigo).
 
----
 
-## ⚖️ Direitos e Licença
 
-* **Propriedade Institucional:** Todos os direitos deste projeto são reservados à **Universidade de Pernambuco (UPE)**.
-* **Transparência e Domínio Público:** A base de dados utilizada é de caráter e **domínio público**, estando em total conformidade com a Lei de Acesso à Informação (LAI). Os dados brutos originais podem ser consultados oficialmente através do Portal da Transparência da instituição.
-* **Finalidade Deste Repositório:** Este ambiente serve primariamente como portfólio técnico e documentação acadêmica. O código aqui disponibilizado cumpre o papel de registrar o aprendizado prático da equipe e servir como material pedagógico de estudo para futuras soluções de Business Intelligence dentro do ecossistema universitário.
+#### ⚖️ Direitos e Licença
+
+* **Propriedade Institucional:** todos os direitos deste projeto são reservados à **Universidade de Pernambuco (UPE)**.
+* **Transparência e Domínio Público:** a base de dados utilizada é de caráter e **domínio público**, estando em total conformidade com a Lei de Acesso à Informação (LAI). Os dados brutos originais podem ser consultados oficialmente através do Portal da Transparência da instituição.
+* **Finalidade Deste Repositório:** este ambiente serve primariamente como portfólio técnico e documentação acadêmica. O código aqui disponibilizado cumpre o papel de registrar o aprendizado prático da equipe e servir como material pedagógico de estudo para futuras soluções de Business Intelligence dentro do ecossistema universitário.
