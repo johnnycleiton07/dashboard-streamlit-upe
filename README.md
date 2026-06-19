@@ -2,43 +2,45 @@
 
 # Observatório de Dados da Pró-Reitoria de Administração e Finanças da Universidade de Pernambuco (UPE)
 
-JOHNNY CLEITON - Residente (Ciência de Dados e Analytics)  
-JOSS TIMOTEO - Residente (Ciência de Dados e Analytics)   
-RAPHAEL FEITOSA -Servidor (UPE / PROADMI) 
+JOHNNY CLEITON (aluno residente)  
+JOSS TIMOTEO (aluno residente)   
+RAPHAEL FEITOSA (aluno servidor) 
 
-Este projeto é resultado do Trabalho de Conclusão de Curso desenvolvido no contexto da **Residência em Ciência de Dados e Analytics** da Universidade de Pernambuco (UPE). A iniciativa surgiu por meio da colaboração entre residentes da área de tecnologia e servidores da instituição, com o objetivo de cocriar um observatório digital fundamentado em dados disponibilizados pelos setores da universidade. Neste trabalho, o foco está na Pró-Reitoria de Administração e Finanças (PROADMI), setor responsável pela gestão e acompanhamento da movimentação contratual dos diversos campi da UPE.
+Este projeto é resultado do Trabalho de Conclusão de Curso desenvolvido na **Residência em Ciência de Dados e Analytics** da Universidade de Pernambuco (UPE). A iniciativa surgiu por meio da colaboração entre residentes da área de tecnologia e servidores da instituição, com o objetivo de cocriar um observatório digital fundamentado em dados disponibilizados pelos setores da universidade. Neste trabalho, o foco está na Pró-Reitoria de Administração e Finanças (PROADMI), setor responsável pela gestão e acompanhamento da movimentação contratual dos diversos campi da UPE.
 
+<div align="center">
+  
+| ![Fluxo de ETL no Apache Hop](./assets/UPE.png) |
+|:--:|
 
----
+</div>
+
 
 ## MOTIVAÇÃO
 Centralizar o acompanhamento dos contratos da UPE por meio de um dashboard interativo.
 
-💡 *Caso queira executar a aplicação diretamente em sua máquina, pule para a seção de [Como Executar o Projeto](#-como-executar-o-projeto).*
+> [!TIP]
+> Caso queira executar a aplicação diretamente em sua máquina, pule para a seção de [Como Executar o Projeto](#-como-executar-o-projeto).
 
----
 
 ## BACKGROUND
 
 #### O Setor e o Problema
-A Pró-Reitoria de Administração e Finanças (PROADMI) desempenha um papel crucial na governança orçamentária e operacional da UPE. Dentro de seu escopo, o setor de Contratos gerencia um volume expressivo de acordos, termos aditivos e prazos de vigência. O grande desafio residia na sintetização dessas informações, o que dificultava análises preditivas de despesas, o controle visual de vencimentos iminentes e a distribuição equilibrada da carga administrativa.
+A PROADMI desempenha um papel decisivo na governança orçamentária e operacional da UPE. Dentro de seu escopo, o setor de Contratos gerencia um volume expressivo de acordos, termos aditivos e prazos de vigência. O grande desafio residia na sintetização dessas informações, o que dificultava análises preditivas de despesas, o controle visual de vencimentos iminentes e a distribuição equilibrada da carga administrativa.
 
 #### Base de Dados
-A aplicação é alimentada pela **PGC (Planilha de Gerenciamento de Contratos)**, uma base de dados idealizada, estruturada e mantida por [Raphael Feitosa](https://www.linkedin.com/in/raphael-feitosa-49840a258/) junto à gerência do setor.
-* **Propósito:** registrar, fiscalizar e atualizar o ciclo de vida (etapas, valores e vigências) de todos os contratos ativos e inativos da UPE.
-* **Visão Geral:** a planilha conta atualmente com cerca de 70 colunas e engloba variáveis críticas como: número do processo licitatório, objeto contratado, valores globais/mensais, vigência cronológica, dados dos fornecedores e fiscais responsáveis.
+A aplicação é alimentada pela **PGC (Planilha de Gerenciamento de Contratos)**, uma base de dados idealizada, estruturada e mantida por [Raphael Feitosa](https://www.linkedin.com/in/raphael-feitosa-49840a258/) junto à gerência do setor. A planilha tem o propósito de registrar, fiscalizar e atualizar o ciclo de vida de todos os contratos (ativos ou inativos) e conta atualmente com cerca de 70 colunas, englobando variáveis críticas como número do processo licitatório, objeto contratado, valores globais/mensais, vigência cronológica, dados dos fornecedores e fiscais responsáveis.
 
----
 
 ## PROCESSO DE CONSTRUÇÃO E TECNOLOGIAS
 
-#### Tratamento de Dados (ETL) 
+#### Tratamento de Dados
 
 Todo o processo de Extração, Transformação e Carga (ETL) foi desenvolvido utilizando o [**Apache Hop**](https://hop.apache.org/), garantindo a padronização, limpeza e integridade dos dados extraídos da planilha PGC antes de sua renderização.
   
 <div align="center">
   
-| ![Fluxo de ETL no Apache Hop](./assets/apache_hop_pipeline.png) |
+| ![Fluxo de ETL no Apache Hop](./assets/ETL_Apachehop.jpeg) |
 |:--:|
 | *Pipeline de ETL construído no Apache Hop* |
 
@@ -48,144 +50,145 @@ Todo o processo de Extração, Transformação e Carga (ETL) foi desenvolvido ut
 
 O dashboard foi codificado inteiramente em **Python** com apoio de **CSS** na estilização. O framework utilizado para a arquitetura web da aplicação foi o [**Streamlit**](https://streamlit.io/), e as bibliotecas **Pandas** e **Plotly Express** complementaram para a manipulação analítica e geração de gráficos interativos.
 
-A escolha de cada um dos gráficos se deu por leitura de artigos digitais 
+<div align="center">
+  
+| ![Fluxo de ETL no Apache Hop](./assets/dashboard.gif) |
+|:--:|
 
----
+</div>
 
-## ANÁLISE DOS GRÁFICOS E KPIS
 
-Esta é a seção central do observatório. Além da apresentação básica de *KPIs* (*Key Performance Indicators*), o dashboard está segmentado em 3 grandes blocos funcionais, totalizando **14 gráficos** planejados para responder a diferentes níveis de perguntas de negócio da PROADMI.
 
-#### 💡 Indicadores-Chave de Desempenho (KPIs)
-Logo no topo da interface, antes dos gráficos detalhados, o dashboard exibe 6 painéis de métricas dinâmicas.
+<p align="center">
+  ✦ ✦ ✦
+</p>
 
-* **Total de Contratos:** quantidade absoluta de contratos dentro do escopo selecionado.
-* **Valor Total Contratado:** soma do impacto financeiro global (R$) de todos os contratos vigentes ou filtrados.
-* **Valor Executado dos Contratos:** montante financeiro que já foi efetivamente liquidado/pago.
-* **Ano com mais Contratos:** identifica o ano calendário que concentra o maior volume de registros.
-* **Maior Contratada:** a empresa ou fornecedor que detém o maior número de vínculos contratuais.
-* **Unidade Destaque:** o setor ou campus da universidade (unidade beneficiada) com a maior demanda contratual registrada.
+
+## ANÁLISE DOS GRÁFICOS
+
+Esta é a seção central do observatório. Além de indicadores básicos de performance (*KPIs - Key Performance Indicators*), o dashboard está segmentado em 3 grandes blocos funcionais: Administrativo, Financeiro e Estratégico. No total são **14 gráficos** planejados para responder a diferentes níveis de perguntas de negócio da PROADMI.
 
 <div align="center">
   
 | ![Painel de KPIs do Dashboard](./assets/kpis_dashboard.png) |
 |:--:|
-| *Visão geral dos indicadores-chave* |
+| *Key Performance Indicators* |
 
 </div>
 
----
+
+
 
 #### 📈 Bloco 1: ADMINISTRATIVO
 Focado na análise detalhada da quantidade, categorização, vigência e base legal dos contratos.
 
 1. **📅 Quantidade de Contratos por Ano - Evolução Histórica Total**
-   * *Descrição:* mostra o crescimento ou redução na quantidade total de contratos firmados ao longo dos anos.
-   * *Tipo de Gráfico:* Gráfico de Área.
+   * **Descrição:** mostra o crescimento ou redução na quantidade total de contratos firmados ao longo dos anos, respondendo como o volume de novos contratos da instituição está evoluindo a longo prazo e se há alguma tendência histórica de alta ou queda.
+   * **Tipo de Gráfico:** gráfico de área.
      
 <div align="center">
   
 | ![Gráfico Administrativo 1](./assets/grafico_adm_1.png) |
 |:--:|
-| ***Evolução Histórica Total:** responde como o volume de novos contratos da instituição está evoluindo a longo prazo e se há alguma tendência histórica de alta ou queda.* |
+| *Evolução Histórica Total* |
 
 </div>
  
 
 
 2. **📅 Quantidade de Contratos por Ano - Comparativo 2025 x 2026**
-   * *Descrição:* Compara lado a lado a quantidade de contratos de dois anos específicos selecionados pelo usuário.
-   * *Tipo de Gráfico:* Gráfico de Barras Verticais.
+   * **Descrição:** compara lado a lado a quantidade de contratos de dois anos específicos selecionados pelo usuário, respondendo qual dos dois períodos comparados foi mais produtivo em termos de novas contratações e qual a diferença exata entre eles.
+   * **Tipo de Gráfico:** gráfico de barras verticais.
      
 <div align="center">
   
 | ![Gráfico Administrativo 2](./assets/grafico_adm_2.png) |
 |:--:|
-| ***Comparativo 2025 x 2026:** responde qual dos dois períodos comparados foi mais produtivo em termos de novas contratações e qual a diferença exata entre eles.* |
+| *Comparativo 2025 x 2026* |
 
 </div>
 
 
 
 3. **🏷️ Contratos por Categoria do Objeto - Distribuição Hierárquica de Categorias**
-   * *Descrição:* representa visualmente o peso de cada categoria de contrato no total acumulado através de blocos proporcionais.
-   * *Tipo de Gráfico:* Treemap (Mapa de Árvore).
+   * **Descrição:** representa visualmente o peso de cada categoria de contrato no total acumulado através de blocos proporcionais, respondendo instantaneamente quais categorias de objetos (ex: serviços, compras) são mais frequentes e dominam o ecossistema de contratos.
+   * **Tipo de Gráfico:** treemap (mapa de árvore).
      
 <div align="center">
   
 | ![Gráfico Administrativo 3](./assets/grafico_adm_3.png) |
 |:--:|
-| ***Distribuição Hierárquica de Categorias:** responde instantaneamente quais categorias de objetos (ex: serviços, compras) são mais frequentes e dominam o ecossistema de contratos.*  |
+| *Distribuição Hierárquica de Categorias*  |
 
 </div>
 
 
 
 4. **⚖️ Contratos Vigentes por Classificação da Lei - Proporção de Contratos Ativos**
-   * *Descrição:* exibe a divisão percentual dos contratos vigentes entre a Lei antiga (8666/93) e a nova Lei de Licitações (14133/21).
-   * *Tipo de Gráfico:* Gráfico de Rosca (ou Pizza com furo central).
+   * **Descrição:** exibe a divisão percentual dos contratos vigentes entre a Lei antiga (8666/93) e a nova Lei de Licitações (14133/21), respondendo qual é o percentual de adesão e o andamento da transição jurídica para o novo marco regulatório nos contratos ativos.
+   * **Tipo de Gráfico:** gráfico de rosca (ou pizza com furo central).
      
 <div align="center">
   
 | ![Gráfico Administrativo 4](./assets/grafico_adm_4.png) |
 |:--:|
-| ***Proporção de Contratos Ativos:** responde qual é o percentual de adesão e o andamento da transição jurídica para o novo marco regulatório nos contratos ativos.* |
+| *Proporção de Contratos Ativos* |
 
 </div>
 
 
 
 5. **⚖️ Contratos Vigentes por Classificação da Lei - Volume de Contratos Ativos**
-   * *Descrição:* apresenta a quantidade absoluta exata de contratos que estão em execução sob o regime de cada lei.
-   * *Tipo de Gráfico:* Gráfico de Barras Horizontais.
+   * **Descrição:** apresenta a quantidade absoluta exata de contratos que estão em execução sob o regime de cada lei, respondendo numericamente quantos contratos vigentes ainda estão vinculados à legislação antiga versus a quantidade já licitada pela nova.
+   * **Tipo de Gráfico:** gráfico de barras horizontais.
      
 <div align="center">
   
 | ![Gráfico Administrativo 5](./assets/grafico_adm_5.png) |
 |:--:|
-| ***Volume de Contratos Ativos:** responde numericamente quantos contratos vigentes ainda estão vinculados à legislação antiga versus a quantidade já licitada pela nova.* |
+| *Volume de Contratos Ativos* |
 
 </div>
 
 
 
 6. **⏳ Quantidade de Contratos por Vigência - Contratos por Tipo de Vigência**
-   * *Descrição:* mostra a quantidade de contratos vigentes divididos por modalidades de prazo (anos, meses ou dias).
-   * *Tipo de Gráfico:* Gráfico de Barras Verticais.
+   * **Descrição:** mostra a quantidade de contratos vigentes divididos por modalidades de prazo (anos, meses ou dias), respondendo qual o perfil de duração mais comum adotado pela administração nas suas contratações padrão.
+   * **Tipo de Gráfico:** gráfico de barras verticais.
      
 <div align="center">
   
 | ![Gráfico Administrativo 6](./assets/grafico_adm_6.png) |
 |:--:|
-| ***Contratos por Tipo de Vigência:** responde qual o perfil de duração mais comum adotado pela administração nas suas contratações padrão.* |
+| *Contratos por Tipo de Vigência* |
 
 </div>
 
 
 
 7. **⏳ Quantidade de Contratos por Vigência - Ranking de Tempos Contratuais (Top 10)**
-   * *Descrição:* lista de forma ordenada os 10 prazos de validade (em meses/dias) que mais se repetem nos contratos.
-   * *Tipo de Gráfico:* Gráfico de Barras Horizontais.
+   * **Descrição:** lista de forma ordenada os 10 prazos de validade (em meses/dias) que mais se repetem nos contratos, respondendo quais são as durações contratuais mais padronizadas e utilizadas de maneira recorrente pelo setor de compras.
+   * **Tipo de Gráfico:** gráfico de barras horizontais.
    
 <div align="center">
   
 | ![Gráfico Administrativo 7](./assets/grafico_adm_7.png) |
 |:--:|
-| ***Ranking de Tempos Contratuais (Top 10):** responde quais são as durações contratuais mais padronizadas e utilizadas de maneira recorrente pelo setor de compras.* |
+| *Ranking de Tempos Contratuais (Top 10)* |
 
 </div>
 
 
 
 8. **⏳ Quantidade de Contratos por Vigência - Tipo de Vigência x Categoria do Objeto**
-   * *Descrição:* lista de forma ordenada os 10 prazos de validade (em meses/dias) que mais se repetem nos contratos.
-   * *Tipo de Gráfico:* Gráfico de Barras Empilhadas.
+   * **Descrição:** lista de forma ordenada os 10 prazos de validade (em meses/dias) que mais se repetem nos contratos, respondendo como os prazos se comportam dentro de cada categoria (ex: se "Serviços de Engenharia" são majoritariamente contínuos ou determinados).
+   * **Tipo de Gráfico:** gráfico de barras empilhadas.
      
 <div align="center">
   
 | ![Gráfico Administrativo 8](./assets/grafico_adm_8.png) |
 |:--:|
-| ***Tipo de Vigência x Categoria do Objeto:** responde como os prazos se comportam dentro de cada categoria (ex: se "Serviços de Engenharia" são majoritariamente contínuos ou determinados).*  |
+| *Tipo de Vigência x Categoria do Objeto* |
 
 </div>
 
@@ -195,42 +198,42 @@ Focado na análise detalhada da quantidade, categorização, vigência e base le
 Destinado ao companhamento do volume de recursos empenhados, liquidações e distribuição por categoria.
 
 9. **🗂️ Comportamento dos Valores Contratados - Soma dos Valores Totais por Ano (Tamanho indica Volume)**
-   * *Descrição:* traça a evolução financeira total contratada por ano, usando o tamanho dos pontos para destacar os picos de valores.
-   * *Tipo de Gráfico:* Gráfico de Linha combinado com Dispersão (Gráfico de Bolhas).
+   * **Descrição:** traça a evolução financeira total contratada por ano, usando o tamanho dos pontos para destacar os picos de valores, respondendo em quais anos a instituição assumiu os maiores compromissos financeiros e qual a tendência do orçamento contratado no tempo.
+   * **Tipo de Gráfico:** gráfico de linha combinado com dispersão (gráfico de bolhas).
      
 <div align="center">
   
 | ![Gráfico Financeiro 1](./assets/grafico_fin_1.png) |
 |:--:|
-| ***Soma dos Valores Totais por Ano (Tamanho indica Volume):** responde em quais anos a instituição assumiu os maiores compromissos financeiros e qual a tendência do orçamento contratado no tempo.* |
+| *Soma dos Valores Totais por Ano (Tamanho indica Volume)* |
 
 </div>
 
 
 
 10. **📈 Evolução da Execução Financeira - Histórico de Valores Liquidados/Executados por Ano**
-    * *Descrição:* apresenta a curva histórica dos valores financeiros que já foram efetivamente liquidados e pagos ano a ano.
-    * *Tipo de Gráfico:* Gráfico de Área Suavizada (Spline).
+    * **Descrição:** apresenta a curva histórica dos valores financeiros que já foram efetivamente liquidados e pagos ano a ano, respondendo se o dinheiro planejado está sendo realmente gasto no ritmo esperado e como anda a eficiência da execução financeira líquida.
+    * **Tipo de Gráfico:** gráfico de área suavizada (spline).
      
 <div align="center">
   
 | ![Gráfico Financeiro 2](./assets/grafico_fin_2.png) |
 |:--:|
-| ***Histórico de Valores Liquidados/Executados por Ano:** responde se o dinheiro planejado está sendo realmente gasto no ritmo esperado e como anda a eficiência da execução financeira líquida.* |
+| *Histórico de Valores Liquidados/Executados por Ano* |
 
 </div>
 
 
 
 11. **🏷️ Investimento por Categoria do Objeto - Top 3 Categorias com Maior Concentração de Recursos Financeiros**
-    * *Descrição:* destaca os valores em Reais (R$) consumidos pelas três categorias mais caras da instituição.
-    * *Tipo de Gráfico:* Gráfico de Barras Verticais.
+    * **Descrição:** destaca os valores em Reais (R$) consumidos pelas três categorias mais caras da instituição, respondendo de forma direta quais são os três macro-objetos que mais drenam e concentram o orçamento financeiro total da entidade.
+    * **Tipo de Gráfico:** gráfico de barras verticais.
       
 <div align="center">
   
 | ![Gráfico Financeiro 3](./assets/grafico_fin_3.png) |
 |:--:|
-| ***Top 3 Categorias com Maior Concentração de Recursos Financeiros:** responde de forma direta quais são os três macro-objetos que mais drenam e concentram o orçamento financeiro total da entidade.* |
+| *Top 3 Categorias com Maior Concentração de Recursos Financeiros* |
 
 </div>
 
@@ -241,42 +244,42 @@ Destinado ao companhamento do volume de recursos empenhados, liquidações e dis
 Evolução temporal do comportamento dos contratos e direcionamento de fornecedores.
 
 12. **🎯 Visão Estratégica e Sazonalidade - Contratos Mês a Mês (Início de Vigência)**
-    * *Descrição:* distribui a quantidade de assinaturas ou inícios de contratos ao longo dos 12 meses do ano.
-    * *Tipo de Gráfico:* Gráfico de Barras Verticais.
+    * **Descrição:** distribui a quantidade de assinaturas ou inícios de contratos ao longo dos 12 meses do ano, respondendo se existe um padrão de sazonalidade na administração (ex: se há um acúmulo de contratos iniciando sempre em dezembro ou janeiro).
+    * **Tipo de Gráfico:** gráfico de barras verticais.
       
 <div align="center">
   
 | ![Gráfico Estratégico 1](./assets/grafico_est_1.png) |
 |:--:|
-| ***Contratos Mês a Mês (Início de Vigência):** responde se existe um padrão de sazonalidade na administração (ex: se há um acúmulo de contratos iniciando sempre em dezembro ou janeiro).* |
+| *Contratos Mês a Mês (Início de Vigência)* |
 
 </div>
 
 
 
 13. **🎯 Visão Estratégica e Sazonalidade - Top 5 Contratadas**
-    * *Descrição:* classifica em um ranking os 5 fornecedores/empresas que possuem o maior número de contratos ativos.
-    * *Tipo de Gráfico:* Gráfico de Barras Horizontais.
+    * **Descrição:** classifica em um ranking os 5 fornecedores/empresas que possuem o maior número de contratos ativos, respondendo quem são os parceiros comerciais mais frequentes e ajuda a identificar possíveis cenários de dependência de poucos fornecedores.
+    * **Tipo de Gráfico:** gráfico de barras horizontais.
       
 <div align="center">
   
 | ![Gráfico Estratégico 2](./assets/grafico_est_2.png) |
 |:--:|
-| ***Top 5 Contratadas:** responde quem são os parceiros comerciais mais frequentes e ajuda a identificar possíveis cenários de dependência de poucos fornecedores.* |
+| *Top 5 Contratadas* |
 
 </div>
 
 
 
 14. **🎯 Visão Estratégica e Sazonalidade - Comportamento Mensal por Categoria**
-    * *Descrição:* monitora a variação do início de novos contratos mês a mês, separando cada categoria de objeto por uma linha colorida diferente.
-    * *Tipo de Gráfico:* Gráfico de Linhas Múltiplas.
+    * **Descrição:** monitora a variação do início de novos contratos mês a mês, separando cada categoria de objeto por uma linha colorida diferente, respondendo qual o comportamento de demanda de cada setor ao longo do ano, mostrando se compras de equipamentos aumentam em meses que serviços de engenharia caem, por exemplo.
+    * **Tipo de Gráfico:** gráfico de linhas múltiplas.
       
 <div align="center">
   
 | ![Gráfico Estratégico 3](./assets/grafico_est_3.png) |
 |:--:|
-| ***Comportamento Mensal por Categoria:** responde qual o comportamento de demanda de cada setor ao longo do ano, mostrando se compras de equipamentos aumentam em meses que serviços de engenharia caem, por exemplo.* |
+| *Comportamento Mensal por Categoria* |
 
 </div>
 
