@@ -438,7 +438,12 @@ Para interromper a execução do dashboard, volte ao terminal e pressione:
 Ctrl + C
 ```
 
----
+
+<p align="center">
+  ✦ ✦ ✦
+</p>
+
+
 #### 📄 Informações Adicionais
 
 * Para uma visão mais aprofundada, acesse o **artigo científico completo** desenvolvido durante a residência. Além de detalhar a metodologia, o referencial teórico e os resultados obtidos com o dashboard, o documento explora etapas avançadas não documentadas neste repositório, como a **aplicação de algoritmos de aprendizado de máquina (Machine Learning)** aos dados. [Clique aqui para ler](https://github.com/johnnycleiton07/dashboard-streamlit-upe/tree/main/artigo).
